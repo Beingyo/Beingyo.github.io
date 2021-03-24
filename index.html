@@ -71,12 +71,16 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-v-html图片溢出" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2021/03/23/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2021-03-23T08:29:26.747Z" itemprop="datePublished">2021-03-23</time>
+    <a href="/2021/01/27/v-html%E5%9B%BE%E7%89%87%E6%BA%A2%E5%87%BA/" class="article-date">
+  <time class="dt-published" datetime="2021-01-26T16:00:00.000Z" itemprop="datePublished">2021-01-27</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/CSS/">CSS</a>►<a class="article-category-link" href="/categories/CSS/Vue/">Vue</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -85,7 +89,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/03/23/hello-world/">Hello World</a>
+      <a class="p-name article-title" href="/2021/01/27/v-html%E5%9B%BE%E7%89%87%E6%BA%A2%E5%87%BA/">v-html图片溢出</a>
     </h1>
   
 
@@ -93,27 +97,19 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
+        <p>关于v-html中存在&lt;img&gt;出现图片溢出所在div或dialog等情况处理</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;dialog&quot;</span> <span class="attr">v-html</span>=<span class="string">&quot;content&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// css写法</span></span><br><span class="line">&lt;style&gt;</span><br><span class="line">    <span class="selector-class">.dialog</span> &#123;</span><br><span class="line">      <span class="attribute">width</span>: <span class="number">1024px</span>; </span><br><span class="line">      <span class="attribute">height</span>: <span class="number">960px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="selector-class">.dialog</span> &gt;&gt;&gt; <span class="selector-tag">img</span>,<span class="selector-tag">p</span>,<span class="selector-tag">span</span> &#123;</span><br><span class="line">      <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// scss写法</span></span><br><span class="line">&lt;style&gt;</span><br><span class="line">    <span class="selector-class">.dialog</span> &#123;</span><br><span class="line">      <span class="attribute">width</span>: <span class="number">1024px</span>; </span><br><span class="line">      <span class="attribute">height</span>: <span class="number">960px</span>;</span><br><span class="line">      ::v-deep img, ::v-deep p, ::v-deep span &#123;</span><br><span class="line">        width: <span class="number">100%</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/03/23/hello-world/" data-id="ckmlrebxm00005kt71wc00asy" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/01/27/v-html%E5%9B%BE%E7%89%87%E6%BA%A2%E5%87%BA/" data-id="ckmmtclbm000mh0t74g2e2oxw" data-title="v-html图片溢出" class="article-share-link">Share</a>
       
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li></ul>
+
     </footer>
   </div>
   
@@ -122,12 +118,16 @@
 
 
   
-    <article id="post-噢" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-axios封装优化" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2020/03/23/%E5%99%A2/" class="article-date">
-  <time class="dt-published" datetime="2020-03-23T08:46:43.000Z" itemprop="datePublished">2020-03-23</time>
+    <a href="/2020/08/31/axios%E5%B0%81%E8%A3%85%E4%BC%98%E5%8C%96/" class="article-date">
+  <time class="dt-published" datetime="2020-08-30T17:14:14.000Z" itemprop="datePublished">2020-08-31</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Vue/">Vue</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -136,7 +136,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/03/23/%E5%99%A2/">噢</a>
+      <a class="p-name article-title" href="/2020/08/31/axios%E5%B0%81%E8%A3%85%E4%BC%98%E5%8C%96/">axios封装优化</a>
     </h1>
   
 
@@ -144,14 +144,593 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <h3 id="前言-转载"><a href="#前言-转载" class="headerlink" title="前言(转载)"></a>前言(<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43180359/article/details/103897883">转载</a>)</h3><p>考虑到<a target="_blank" rel="noopener" href="https://panjiachen.github.io/vue-element-admin-site/zh/guide/">vue-element-admin</a>的定位是后台集成方案，不太适合当基础模板来进行二次开发。根据官方推荐clone的基础模板<a target="_blank" rel="noopener" href="https://github.com/PanJiaChen/vue-admin-template">vue-admin-template</a>。下载打开后根据官方的目录结构，可以找到我们需要的如下目录，红框的就是这次要操作的文件。</p>
+<p><img src="https://raw.githubusercontent.com/Beingyo/imgRepository/main/img/hexo-img/axios%E5%B0%81%E8%A3%85%E4%BC%98%E5%8C%96-1.png" alt="8-1"></p>
+<h3 id="官方api使用方式"><a href="#官方api使用方式" class="headerlink" title="官方api使用方式"></a>官方api使用方式</h3><p>官方user.js文件中其中一个接口代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> request <span class="keyword">from</span> <span class="string">&#x27;@/utils/request&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">login</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> request(&#123;</span><br><span class="line">    url: <span class="string">&#x27;/user/login&#x27;</span>,</span><br><span class="line">    method: <span class="string">&#x27;post&#x27;</span>,</span><br><span class="line">    data</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+<p>官方是在使用的具体组件处import，然后再调用对应方法，个人感觉太过繁琐。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; login &#125; <span class="keyword">from</span> <span class="string">&#x27;@/utils/request&#x27;</span></span><br><span class="line"></span><br><span class="line">login().then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;).catch(err) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(err)</span><br></pre></td></tr></table></figure>
+<h3 id="优化方案"><a href="#优化方案" class="headerlink" title="优化方案"></a>优化方案</h3><p>依然遵循官方推荐的方案，每个模块对应一个api接口文件，但是这边做个api出口，挂载到vue原型上，直接通过this调用。<br><br><br>官方推荐根据业务模块来划分 views，并且 将views 和 api 两个模块一一对应，从而方便维护。<br><br><br>第一步，api目录新建一个home.js，作为home模块的api文件（图上蓝色的home和index就是我后面添加的）。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> request <span class="keyword">from</span> <span class="string">&#x27;@/utils/request&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> home = &#123;</span><br><span class="line">  <span class="function"><span class="title">login</span>(<span class="params">params</span>)</span> &#123; <span class="comment">//post请求事例</span></span><br><span class="line">    <span class="keyword">return</span> request.post(<span class="string">&#x27;url&#x27;</span>, params)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 其他接口…………</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> home</span><br></pre></td></tr></table></figure>
+<p>第二步，api目录新建一个index.js，作为所有api文件的导出出口。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">api接口的统一出口</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">// 首页数据接口</span></span><br><span class="line"><span class="keyword">import</span> home <span class="keyword">from</span> <span class="string">&#x27;./home&#x27;</span></span><br><span class="line"><span class="comment">// import xxxx from &#x27;./xxxx&#x27;</span></span><br><span class="line"><span class="comment">// 导出接口</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  home,</span><br><span class="line">  <span class="comment">// xxxx</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第三步，在main.js文件中把api挂载到vue原型上。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> api <span class="keyword">from</span> <span class="string">&#x27;@/api/index.js&#x27;</span></span><br><span class="line"></span><br><span class="line">Vue.prototype.$api = api</span><br></pre></td></tr></table></figure>
+<p>第四步，在需要使用的位置通过this.$api.xxx.xxxx调用。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">this</span>.$api.home.login().then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;).catch(err) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(err)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后，根据你的环境设置在对应环境配置文件设置baseUrl，再做相应调试即可。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">VUE_APP_BASE_API = <span class="string">&#x27;https://www.baidu.com&#x27;</span></span><br></pre></td></tr></table></figure>
+<h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><p><a target="_blank" rel="noopener" href="https://juejin.im/post/59097cd7a22b9d0065fb61d2">手摸手，带你用 vue 撸后台 系列一（基础篇）</a><br><a target="_blank" rel="noopener" href="https://juejin.im/post/5b55c118f265da0f6f1aa354">vue中Axios的封装和API接口的管理</a></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/03/23/%E5%99%A2/" data-id="ckmlsjbco0000kot70g1o6lv7" data-title="噢" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/08/31/axios%E5%B0%81%E8%A3%85%E4%BC%98%E5%8C%96/" data-id="ckmmtclbg0006h0t75o7g0q0e" data-title="axios封装优化" class="article-share-link">Share</a>
       
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/axios/" rel="tag">axios</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-js获取本地时间" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/08/31/js%E8%8E%B7%E5%8F%96%E6%9C%AC%E5%9C%B0%E6%97%B6%E9%97%B4/" class="article-date">
+  <time class="dt-published" datetime="2020-08-30T17:13:13.000Z" itemprop="datePublished">2020-08-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JS/">JS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/08/31/js%E8%8E%B7%E5%8F%96%E6%9C%AC%E5%9C%B0%E6%97%B6%E9%97%B4/">js获取本地时间</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>记录获取本地时间</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取本地时间</span></span><br><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line"><span class="keyword">var</span> YY = date.getFullYear() + <span class="string">&#x27;-&#x27;</span></span><br><span class="line"><span class="keyword">var</span> MM = (date.getMonth() + <span class="number">1</span> &lt; <span class="number">10</span> ? <span class="string">&#x27;0&#x27;</span> + (date.getMonth() + <span class="number">1</span>) : date.getMonth() + <span class="number">1</span>) + <span class="string">&#x27;-&#x27;</span></span><br><span class="line"><span class="keyword">var</span> DD = (date.getDate() &lt; <span class="number">10</span> ? <span class="string">&#x27;0&#x27;</span> + (date.getDate()) : date.getDate())</span><br><span class="line"><span class="keyword">var</span> hh = (date.getHours() &lt; <span class="number">10</span> ? <span class="string">&#x27;0&#x27;</span> + date.getHours() : date.getHours()) + <span class="string">&#x27;:&#x27;</span></span><br><span class="line"><span class="keyword">var</span> mm = (date.getMinutes() &lt; <span class="number">10</span> ? <span class="string">&#x27;0&#x27;</span> + date.getMinutes() : date.getMinutes()) + <span class="string">&#x27;:&#x27;</span></span><br><span class="line"><span class="keyword">var</span> ss = (date.getSeconds() &lt; <span class="number">10</span> ? <span class="string">&#x27;0&#x27;</span> + date.getSeconds() : date.getSeconds())</span><br><span class="line"><span class="keyword">return</span> YY + MM + DD +<span class="string">&quot; &quot;</span>+hh + mm + ss</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/08/31/js%E8%8E%B7%E5%8F%96%E6%9C%AC%E5%9C%B0%E6%97%B6%E9%97%B4/" data-id="ckmmtclbl000ih0t7eis67ww2" data-title="js获取本地时间" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/" rel="tag">JS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-数据去重" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/08/31/%E6%95%B0%E6%8D%AE%E5%8E%BB%E9%87%8D/" class="article-date">
+  <time class="dt-published" datetime="2020-08-30T17:12:12.000Z" itemprop="datePublished">2020-08-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JS/">JS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/08/31/%E6%95%B0%E6%8D%AE%E5%8E%BB%E9%87%8D/">JS数据去重</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>记录三种类型数据去重的处理方法</p>
+<p>1、单个数组内部</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 去重，对&#123;&#125;无效</span></span><br><span class="line"><span class="keyword">var</span> string= [<span class="number">1</span>,<span class="number">1</span>,<span class="string">&#x27;true&#x27;</span>,<span class="string">&#x27;true&#x27;</span>,<span class="literal">true</span>,<span class="literal">true</span>,<span class="number">15</span>,<span class="number">15</span>,<span class="literal">false</span>,<span class="literal">false</span>, <span class="literal">undefined</span>,<span class="literal">undefined</span>, <span class="literal">null</span>,<span class="literal">null</span>, <span class="literal">NaN</span>, <span class="literal">NaN</span>,<span class="string">&#x27;NaN&#x27;</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;a&#x27;</span>,&#123;&#125;,&#123;&#125;]</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;去重前的数据&#x27;</span> + <span class="built_in">JSON</span>.stringify(string)))</span><br><span class="line">string = <span class="built_in">Array</span>.from(<span class="keyword">new</span> <span class="built_in">Set</span>(string))</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;去重后的数据&#x27;</span> + <span class="built_in">JSON</span>.stringify(string)))</span><br><span class="line"><span class="comment">// [1, &#x27;true&#x27;, true, 15 ,false, undefined, null, NaN, &#x27;NaN&#x27;, 0, &#x27;a&#x27;,&#123;&#125;,&#123;&#125;]</span></span><br></pre></td></tr></table></figure>
+<p>2、根据数组对象单个属性</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [</span><br><span class="line">  &#123;</span><br><span class="line">   <span class="keyword">from</span>:<span class="string">&#x27;张三&#x27;</span>,</span><br><span class="line">   to: <span class="string">&#x27;河南&#x27;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">from</span>:<span class="string">&#x27;王二&#x27;</span>,</span><br><span class="line">    to: <span class="string">&#x27;阿里&#x27;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">from</span>:<span class="string">&#x27;王二&#x27;</span>,</span><br><span class="line">    to: <span class="string">&#x27;杭州&#x27;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">from</span>:<span class="string">&#x27;王二&#x27;</span>,</span><br><span class="line">    to: <span class="string">&#x27;山东&#x27;</span></span><br><span class="line">  &#125;,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique</span>(<span class="params">arr1</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> res = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line">  <span class="keyword">return</span> arr1.filter(<span class="function">(<span class="params">a</span>) =&gt;</span> !res.has(a.from) &amp;&amp; res.set(a.from, <span class="number">1</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3、根据数组对象多个对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [</span><br><span class="line">      &#123;</span><br><span class="line">        maxDeptCode: <span class="string">&quot;md3&quot;</span>,</span><br><span class="line">        maxDeptName: <span class="string">&quot;泡泡&quot;</span>,</span><br><span class="line">        minDeptCode: <span class="string">&quot;md301&quot;</span>,</span><br><span class="line">        minDeptName: <span class="string">&quot;泡泡少儿&quot;</span>,</span><br><span class="line">        schoolId: <span class="number">1</span>,</span><br><span class="line">        schoolName: <span class="string">&quot;北京&quot;</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        maxDeptCode: <span class="string">&quot;md2&quot;</span>,</span><br><span class="line">        maxDeptName: <span class="string">&quot;中学&quot;</span>,</span><br><span class="line">        minDeptCode: <span class="string">&quot;md201&quot;</span>,</span><br><span class="line">        minDeptName: <span class="string">&quot;中学一对一&quot;</span>,</span><br><span class="line">        schoolId: <span class="number">1</span>,</span><br><span class="line">        schoolName: <span class="string">&quot;北京&quot;</span>,</span><br><span class="line">      &#125;, &#123;</span><br><span class="line">        maxDeptCode: <span class="string">&quot;md3&quot;</span>,</span><br><span class="line">        maxDeptName: <span class="string">&quot;泡泡&quot;</span>,</span><br><span class="line">        minDeptCode: <span class="string">&quot;md301&quot;</span>,</span><br><span class="line">        minDeptName: <span class="string">&quot;泡泡少儿&quot;</span>,</span><br><span class="line">        schoolId: <span class="number">1</span>,</span><br><span class="line">        schoolName: <span class="string">&quot;北京&quot;</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">    ];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">process</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">      <span class="comment">// 缓存用于记录</span></span><br><span class="line">      <span class="keyword">const</span> cache = [];</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">const</span> t <span class="keyword">of</span> arr) &#123;</span><br><span class="line">        <span class="comment">// 检查缓存中是否已经存在</span></span><br><span class="line">        <span class="keyword">if</span> (cache.find(<span class="function"><span class="params">c</span> =&gt;</span> c.maxDeptCode === t.maxDeptCode &amp;&amp; c.minDeptCode === t.minDeptCode)) &#123;</span><br><span class="line">          <span class="comment">// 已经存在说明以前记录过，现在这个就是多余的，直接忽略</span></span><br><span class="line">          <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 不存在就说明以前没遇到过，把它记录下来</span></span><br><span class="line">        cache.push(t);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 记录结果就是过滤后的结果</span></span><br><span class="line">      <span class="keyword">return</span> cache;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(process(arr));</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/08/31/%E6%95%B0%E6%8D%AE%E5%8E%BB%E9%87%8D/" data-id="ckmmtclbp000yh0t773vlhj64" data-title="JS数据去重" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/" rel="tag">JS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-原生JS事件" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/08/31/%E5%8E%9F%E7%94%9FJS%E4%BA%8B%E4%BB%B6/" class="article-date">
+  <time class="dt-published" datetime="2020-08-30T17:11:11.000Z" itemprop="datePublished">2020-08-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JS/">JS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/08/31/%E5%8E%9F%E7%94%9FJS%E4%BA%8B%E4%BB%B6/">原生JS事件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/pythonywy/p/11369847.html">参照地址</a></p>
+<table>
+<thead>
+<tr>
+<th align="center">属性</th>
+<th align="center">当以下情况发生时，出现此事件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">onabort</td>
+<td align="center">图像加载被中断</td>
+</tr>
+<tr>
+<td align="center">onblur</td>
+<td align="center">元素失去焦点</td>
+</tr>
+<tr>
+<td align="center">onchange</td>
+<td align="center">用户改变域的内容</td>
+</tr>
+<tr>
+<td align="center">onclick</td>
+<td align="center">鼠标点击某个对象</td>
+</tr>
+<tr>
+<td align="center">ondblclick</td>
+<td align="center">鼠标双击某个对象</td>
+</tr>
+<tr>
+<td align="center">onerror</td>
+<td align="center">当加载文档或图像时发生某个错误</td>
+</tr>
+<tr>
+<td align="center">onfocus</td>
+<td align="center">元素获得焦点</td>
+</tr>
+<tr>
+<td align="center">onkeydown</td>
+<td align="center">某个键盘的键被按下</td>
+</tr>
+<tr>
+<td align="center">onkeypress</td>
+<td align="center">某个键盘的键被按下或按住</td>
+</tr>
+<tr>
+<td align="center">onkeyup</td>
+<td align="center">某个键盘的键被松开</td>
+</tr>
+<tr>
+<td align="center">onload</td>
+<td align="center">某个页面或图像被完成加载</td>
+</tr>
+<tr>
+<td align="center">onmousedown</td>
+<td align="center">某个鼠标按键被按下</td>
+</tr>
+<tr>
+<td align="center">onmousemove</td>
+<td align="center">鼠标被移动</td>
+</tr>
+<tr>
+<td align="center">onmouseout</td>
+<td align="center">鼠标从某元素移开</td>
+</tr>
+<tr>
+<td align="center">onmouseover</td>
+<td align="center">鼠标被移到某元素之上</td>
+</tr>
+<tr>
+<td align="center">onmouseup</td>
+<td align="center">某个鼠标按键被松开</td>
+</tr>
+<tr>
+<td align="center">onreset</td>
+<td align="center">重置按钮被点击</td>
+</tr>
+<tr>
+<td align="center">onresize</td>
+<td align="center">窗口或框架被调整尺寸</td>
+</tr>
+<tr>
+<td align="center">onselect</td>
+<td align="center">文本被选定</td>
+</tr>
+<tr>
+<td align="center">onsubmit</td>
+<td align="center">提交按钮被点击</td>
+</tr>
+<tr>
+<td align="center">onunload</td>
+<td align="center">用户退出页面</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/08/31/%E5%8E%9F%E7%94%9FJS%E4%BA%8B%E4%BB%B6/" data-id="ckmmtclbn000sh0t73oq7dxwt" data-title="原生JS事件" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/" rel="tag">JS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-flex元素居右" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/08/31/flex%E5%85%83%E7%B4%A0%E5%B1%85%E5%8F%B3/" class="article-date">
+  <time class="dt-published" datetime="2020-08-30T17:10:10.000Z" itemprop="datePublished">2020-08-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/CSS/">CSS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/08/31/flex%E5%85%83%E7%B4%A0%E5%B1%85%E5%8F%B3/">flex元素居右</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>记录在flex布局中某些元素需要居右的处理方式</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="comment">//需要居右的元素</span></span><br><span class="line">  <span class="attribute">margin-left</span>: auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/08/31/flex%E5%85%83%E7%B4%A0%E5%B1%85%E5%8F%B3/" data-id="ckmmtclbh0008h0t7c68n8plu" data-title="flex元素居右" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-背景色填充" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/08/31/%E8%83%8C%E6%99%AF%E8%89%B2%E5%A1%AB%E5%85%85/" class="article-date">
+  <time class="dt-published" datetime="2020-08-30T17:01:01.000Z" itemprop="datePublished">2020-08-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/CSS/">CSS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/08/31/%E8%83%8C%E6%99%AF%E8%89%B2%E5%A1%AB%E5%85%85/">背景色填充</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="前面的话"><a href="#前面的话" class="headerlink" title="前面的话"></a>前面的话</h3><font>
+&emsp;&emsp;一般地，有两种自适应：撑满空闲空间与收缩到内容尺寸。CSS3将这两种情况分别定义为'fill-availabel'和'fit-content'。除此之外 ，还新增了更细粒度的'min-content'和'max-content'。这四个关键字可用于设置宽高属性。本文将详细介绍CSS3中的这四个自适应关键字
+</font>
+<br>
+<font>
+&emsp;&emsp;[注意]IE浏览器不支持，webkit内核浏览器需添加-webkit-前缀
+</font>
+
+<h3 id="fill-available"><a href="#fill-available" class="headerlink" title="fill-available"></a>fill-available</h3><font>
+&emsp;&emsp;width:fill-available表示撑满可用空间
+<br>
+&emsp;&emsp;举例来说，页面中一个&lt;div&gt;元素，该&lt;div&gt;元素的width表现就是fill-available自动填满剩余的空间
+<br>
+&emsp;&emsp;出现fill-available关键字值的价值在于，可以让元素的100%自动填充特性不仅仅在block水平元素上，也可以应用在其他元素
+<br>
+&emsp;&emsp;下面的例子中，inline-block元素宽度撑满了可用宽度
+</font>
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">  <span class="attribute">background-color</span>: pink;</span><br><span class="line">  <span class="attribute">display</span>:inline-block;</span><br><span class="line">  <span class="attribute">width</span>:-webkit-fill-available;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>这个人很懒，所以只留下这句话...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<div style="background-color: pink;display:inline-block; width:-webkit-fill-available;">这个人很懒，所以只留下这句话...</div>
+
+<font>
+类似地，高度也有此特性
+<br>
+&emsp;&emsp;下面的例子中，div元素高度撑满了可用高度
+</font>
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-class">.inner</span>&#123;</span><br><span class="line">  <span class="attribute">background-color</span>: pink;</span><br><span class="line">  <span class="attribute">height</span>:-webkit-fill-available;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;height: 100px;&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;inner&quot;</span>&gt;</span>这个人很懒，所以只留下这句话...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<div style="height: 100px;">
+  <div style="background-color: pink;height:-webkit-fill-available;">这个人很懒，所以只留下这句话...</div>
+</div>
+
+<font>
+【等高布局】
+<br>
+&emsp;&emsp;于是，利用fill-available可以轻松地实现等高布局
+</font>
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line"><span class="selector-class">.inner</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>:<span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">height</span>:-webkit-fill-available;</span><br><span class="line">  <span class="attribute">margin</span>:<span class="number">0</span> <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">vertical-align</span>: middle;</span><br><span class="line">  <span class="attribute">background-color</span>: pink;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;height: 100px;&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;inner&quot;</span>&gt;</span>HTML<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;inner&quot;</span>&gt;</span>CSS<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;inner&quot;</span>&gt;</span>JS<span class="tag">&lt;<span class="name">br</span>&gt;</span>jQyery<span class="tag">&lt;<span class="name">br</span>&gt;</span>Vue<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<div style="height: 100px;">
+  <div style="width:100px;height:-webkit-fill-available;margin:0 10px;display: inline-block;vertical-align: middle;background-color: pink;">HTML</div>
+  <div style="width:100px;height:-webkit-fill-available;margin:0 10px;display: inline-block;vertical-align: middle;background-color: pink;">CSS</div>
+  <div style="width:100px;height:-webkit-fill-available;margin:0 10px;display: inline-block;vertical-align: middle;background-color: pink;">JS<br>jQyery<br>Vue</div>
+</div>
+
+<h3 id="fit-content"><a href="#fit-content" class="headerlink" title="fit-content"></a>fit-content</h3><font>
+&emsp;&emsp;width:fit-content表示将元素宽度收缩为内容宽度
+<br>
+&emsp;&emsp;下面是一个实例
+</font>
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">  <span class="attribute">background-color</span>: pink;</span><br><span class="line">  <span class="attribute">width</span>:-webkit-fit-content;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>这个人很懒，所以只留下这句话...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<div style="background-color: pink;width:-webkit-fit-content;">这个人很懒，所以只留下这句话...</div>
+
+<font>
+【水平居中】
+<br>
+&emsp;&emsp;width:fit-content可以实现元素收缩效果的同时，保持原本的block水平状态，于是，就可以直接使用margin:auto实现元素向内自适应同时的居中效果了
+</font>
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">  <span class="attribute">background-color</span>: pink;</span><br><span class="line">  <span class="attribute">width</span>:-webkit-fit-content;</span><br><span class="line">  <span class="attribute">margin</span>:auto;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>这个人很懒，所以只留下这句话...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<div style="background-color: pink;width:-webkit-fit-content;margin:auto;">这个人很懒，所以只留下这句话...</div>
+
+<font>
+类似地，高度也有此特性，但不常用
+</font>
+
+<h3 id="min-content"><a href="#min-content" class="headerlink" title="min-content"></a>min-content</h3><font>
+&emsp;&emsp;width:min-content表示采用内部元素最小宽度值最大的那个元素的宽度作为最终容器的宽度
+<br>
+&emsp;&emsp;首先，要明白这里的“最小宽度值”是什么意思。替换元素，例如图片的最小宽度值就是图片呈现的宽度，对于文本元素，如果全部是中文，则最小宽度值就是一个中文的宽度值；如果包含英文，因为默认英文单词不换行，所以，最小宽度可能就是里面最长的英文单词的宽度
+</font>
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line"><span class="selector-class">.outer</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>:-webkit-min-content;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;outer&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;height:10px;width:100px;background:lightgreen&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;background-color: pink;&quot;</span>&gt;</span>这个人很懒，所以只留下这句话...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<div style="width:-webkit-min-content;">
+  <div style="height:10px;width:100px;background:lightgreen"></div>
+  <div style="background-color: pink;">这个人很懒，所以只留下这句话...</div>
+</div>
+
+<h3 id="max-content"><a href="#max-content" class="headerlink" title="max-content"></a>max-content</h3><font>
+&emsp;&emsp;width:max-content表示采用内部元素宽度值最大的那个元素的宽度作为最终容器的宽度。如果出现文本，则相当于文本不换行
+</font>
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line"><span class="selector-class">.outer</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>:-webkit-max-content;</span><br><span class="line">  <span class="attribute">border</span>:<span class="number">1px</span> solid black;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;outer&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;height:10px;width:100px;background:lightgreen&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;background-color: pink;&quot;</span>&gt;</span>这个人很懒，所以只留下这句话...这个人很懒，所以只留下这句话...这个人很懒，所以只留下这句话...这个人很懒，所以只留下这句话...这个人很懒，所以只留下这句话...这个人很懒，所以只留下这句话...这个人很懒，所以只留下这句话...这个人很懒，所以只留下这句话...这个人很懒，所以只留下这句话...这个人很懒，所以只留下这句话...这个人很懒，所以只留下这句话...这个人很懒，所以只留下这句话...这个人很懒，所以只留下这句话...这个人很懒，所以只留下这句话...这个人很懒，所以只留下这句话...这个人很懒，所以只留下这句话...这个人很懒，所以只留下这句话...这个人很懒，所以只留下这句话...这个人很懒，所以只留下这句话...这个人很懒，所以只留下这句话...这个人很懒，所以只留下这句话...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<div style="width:-webkit-max-content;border:1px solid black;">
+  <div style="height:10px;width:100px;background:lightgreen"></div>
+  <div style="background-color: pink;width: 850px;overflow-x: auto">这个人很懒，所以只留下这句话...这个人很懒，所以只留下这句话...这个人很懒，所以只留下这句话...这个人很懒，所以只留下这句话...这个人很懒，所以只留下这句话...这个人很懒，所以只留下这句话...这个人很懒，所以只留下这句话...这个人很懒，所以只留下这句话...这个人很懒，所以只留下这句话...这个人很懒，所以只留下这句话...这个人很懒，所以只留下这句话...这个人很懒，所以只留下这句话...这个人很懒，所以只留下这句话...这个人很懒，所以只留下这句话...这个人很懒，所以只留下这句话...这个人很懒，所以只留下这句话...这个人很懒，所以只留下这句话...这个人很懒，所以只留下这句话...这个人很懒，所以只留下这句话...这个人很懒，所以只留下这句话...这个人很懒，所以只留下这句话...</div>
+</div>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/08/31/%E8%83%8C%E6%99%AF%E8%89%B2%E5%A1%AB%E5%85%85/" data-id="ckmmtclbq0011h0t7821n9zl9" data-title="背景色填充" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Vue-SCSS使用" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/08/31/Vue-SCSS%E4%BD%BF%E7%94%A8/" class="article-date">
+  <time class="dt-published" datetime="2020-08-30T16:40:40.000Z" itemprop="datePublished">2020-08-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/CSS/">CSS</a>►<a class="article-category-link" href="/categories/CSS/Vue/">Vue</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/08/31/Vue-SCSS%E4%BD%BF%E7%94%A8/">Vue-SCSS使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>npm安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install sass-loader@7.3.1 --save-dev</span><br><span class="line">npm install node-sass --save</span><br><span class="line">npm install style-loader --save</span><br></pre></td></tr></table></figure>
+<p>在build文件夹下的webpack.base.conf.js的rules里面添加配置</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">test: <span class="regexp">/\.scss$/</span>,</span><br><span class="line">loaders: [<span class="string">&#x27;style&#x27;</span>, <span class="string">&#x27;css&#x27;</span>, <span class="string">&#x27;sass&#x27;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果遇到：<font color=#DF402A> npm ERR! Failed at the <a href="mailto:&#110;&#x6f;&#100;&#x65;&#45;&#x73;&#x61;&#x73;&#115;&#x40;&#52;&#x2e;&#x31;&#52;&#x2e;&#x31;">&#110;&#x6f;&#100;&#x65;&#45;&#x73;&#x61;&#x73;&#115;&#x40;&#52;&#x2e;&#x31;&#52;&#x2e;&#x31;</a> postinstall script </font></p>
+<p>先进行node-sass 的数据源设置<br><font color=#DF402A> npm config set sass_binary_site=https:<font color=#DF402A>//npm.taobao.org/mirrors/node-sass </font></font></p>
+<p>再安装<br><font color=#DF402A> npm install –registry=https:<font color=#DF402A>//registry.npm.taobao.org </font></font></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/08/31/Vue-SCSS%E4%BD%BF%E7%94%A8/" data-id="ckmmtclbf0004h0t790j36lpn" data-title="Vue-SCSS使用" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-省略文字过长" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/08/31/%E7%9C%81%E7%95%A5%E6%96%87%E5%AD%97%E8%BF%87%E9%95%BF/" class="article-date">
+  <time class="dt-published" datetime="2020-08-30T16:30:40.000Z" itemprop="datePublished">2020-08-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/CSS/">CSS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/08/31/%E7%9C%81%E7%95%A5%E6%96%87%E5%AD%97%E8%BF%87%E9%95%BF/">省略文字过长</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">white-space</span>: nowrap; <span class="comment">//规定段落中的文本不进行换行：</span></span><br><span class="line"><span class="attribute">text-overflow</span>: ellipsis; <span class="comment">//显示省略符号来代表被修剪的文本。</span></span><br><span class="line"><span class="attribute">overflow</span>: hidden; <span class="comment">//内容会被修剪，并且其余内容是不可见的。</span></span><br><span class="line"><span class="attribute">word-break</span>: break-all; <span class="comment">//允许在单词内换行。</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/08/31/%E7%9C%81%E7%95%A5%E6%96%87%E5%AD%97%E8%BF%87%E9%95%BF/" data-id="ckmmtclbo000vh0t70h674nv4" data-title="省略文字过长" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-p标签不换行" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/08/31/p%E6%A0%87%E7%AD%BE%E4%B8%8D%E6%8D%A2%E8%A1%8C/" class="article-date">
+  <time class="dt-published" datetime="2020-08-30T16:30:30.000Z" itemprop="datePublished">2020-08-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/CSS/">CSS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/08/31/p%E6%A0%87%E7%AD%BE%E4%B8%8D%E6%8D%A2%E8%A1%8C/">p标签不换行</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//规定段落中的文本不进行换行：(防止出现数字不换行，文字换行的情况)</span></span><br><span class="line"><span class="selector-tag">p</span></span><br><span class="line">  &#123;</span><br><span class="line">  <span class="attribute">white-space</span>: nowrap</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/08/31/p%E6%A0%87%E7%AD%BE%E4%B8%8D%E6%8D%A2%E8%A1%8C/" data-id="ckmmtclbm000ph0t71umgdej7" data-title="p标签不换行" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li></ul>
+
     </footer>
   </div>
   
@@ -161,24 +740,50 @@
 
   
 
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+  </nav>
 
 </section>
         
           <aside id="sidebar">
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/Vue/">Vue</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/JS/Vue/">Vue</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue/">Vue</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/" rel="tag">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UI/" rel="tag">UI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/axios/" rel="tag">axios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/element/" rel="tag">element</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/JS/" style="font-size: 13.33px;">JS</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/Vue/" style="font-size: 16.67px;">Vue</a> <a href="/tags/axios/" style="font-size: 10px;">axios</a> <a href="/tags/element/" style="font-size: 10px;">element</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li></ul>
     </div>
   </div>
 
@@ -191,11 +796,23 @@
       <ul>
         
           <li>
-            <a href="/2021/03/23/hello-world/">Hello World</a>
+            <a href="/2021/01/27/v-html%E5%9B%BE%E7%89%87%E6%BA%A2%E5%87%BA/">v-html图片溢出</a>
           </li>
         
           <li>
-            <a href="/2020/03/23/%E5%99%A2/">噢</a>
+            <a href="/2020/08/31/axios%E5%B0%81%E8%A3%85%E4%BC%98%E5%8C%96/">axios封装优化</a>
+          </li>
+        
+          <li>
+            <a href="/2020/08/31/js%E8%8E%B7%E5%8F%96%E6%9C%AC%E5%9C%B0%E6%97%B6%E9%97%B4/">js获取本地时间</a>
+          </li>
+        
+          <li>
+            <a href="/2020/08/31/%E6%95%B0%E6%8D%AE%E5%8E%BB%E9%87%8D/">JS数据去重</a>
+          </li>
+        
+          <li>
+            <a href="/2020/08/31/%E5%8E%9F%E7%94%9FJS%E4%BA%8B%E4%BB%B6/">原生JS事件</a>
           </li>
         
       </ul>
