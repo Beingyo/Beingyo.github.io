@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>el-form表单验证的坑 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="v-for问题使用v-for时导致表单验证出现this.$refs[formName].validate is not a function 12&#x2F;&#x2F; $refs[formName]后面加多一个[0]this.$refs[formName][0].validate((valid) &#x3D;&gt; &amp;#123;&amp;#125;)  v-if问题 问题：通过v-if控制两个表单显示或隐藏的过程中，会出现验证失">
+<meta property="og:type" content="article">
+<meta property="og:title" content="el-form表单验证的坑">
+<meta property="og:url" content="http://example.com/2020/08/31/el-form%E8%A1%A8%E5%8D%95%E9%AA%8C%E8%AF%81%E7%9A%84%E5%9D%91/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="v-for问题使用v-for时导致表单验证出现this.$refs[formName].validate is not a function 12&#x2F;&#x2F; $refs[formName]后面加多一个[0]this.$refs[formName][0].validate((valid) &#x3D;&gt; &amp;#123;&amp;#125;)  v-if问题 问题：通过v-if控制两个表单显示或隐藏的过程中，会出现验证失">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-30T18:01:01.000Z">
+<meta property="article:modified_time" content="2021-03-24T07:42:31.438Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="element">
+<meta property="article:tag" content="Vue">
+<meta property="article:tag" content="JS">
+<meta property="article:tag" content="坑">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-el-form表单验证的坑" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/08/31/el-form%E8%A1%A8%E5%8D%95%E9%AA%8C%E8%AF%81%E7%9A%84%E5%9D%91/" class="article-date">
+  <time class="dt-published" datetime="2020-08-30T18:01:01.000Z" itemprop="datePublished">2020-08-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%9D%91/">坑</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      el-form表单验证的坑
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="v-for问题"><a href="#v-for问题" class="headerlink" title="v-for问题"></a>v-for问题</h4><p>使用v-for时导致表单验证出现<font color=#DF402A>this.$refs[formName].validate is not a function</font></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// $refs[formName]后面加多一个[0]</span></span><br><span class="line"><span class="built_in">this</span>.$refs[formName][<span class="number">0</span>].validate(<span class="function">(<span class="params">valid</span>) =&gt;</span> &#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="v-if问题"><a href="#v-if问题" class="headerlink" title="v-if问题"></a>v-if问题</h4><ul>
+<li>问题：通过v-if控制两个表单显示或隐藏的过程中，会出现验证失效、验证冲突、样式出错等情况。</li>
+<li>原因：即使两个表单绑定的值不同，但是浏览器在解析时，先解析第一个表单，此时表单上是没有绑定ref，之后再解析第二个表单时，浏览器发现这它的prop和第一个表单的prop一样，所以就认为这两个表单是同一个表单，就没有重新渲染，而ref本身是作为渲染结果被创建的，所以第二个表单没能成功绑定ref，验证就无法生效。</li>
+<li>解决：给两个表单分别加key值。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/08/31/el-form%E8%A1%A8%E5%8D%95%E9%AA%8C%E8%AF%81%E7%9A%84%E5%9D%91/" data-id="ckmn4ygpu000kpst7cpk01kfp" data-title="el-form表单验证的坑" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/" rel="tag">JS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/element/" rel="tag">element</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9D%91/" rel="tag">坑</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/08/31/forEach,async,await/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          forEach,async,await
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/08/31/(%E8%BD%AC%E8%BD%BD)$nextTick%E7%9A%84%E4%BD%BF%E7%94%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">(转载)$nextTick的使用</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/NPM/">NPM</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BC%A0%E5%8F%82/">传参</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%9D%91/">坑</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%84%E4%BB%B6/">组件</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/" rel="tag">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NPM/" rel="tag">NPM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UI/" rel="tag">UI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/axios/" rel="tag">axios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/element/" rel="tag">element</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BC%A0%E5%8F%82/" rel="tag">传参</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9D%91/" rel="tag">坑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%84%E4%BB%B6/" rel="tag">组件</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS/" style="font-size: 15.71px;">CSS</a> <a href="/tags/JS/" style="font-size: 17.14px;">JS</a> <a href="/tags/NPM/" style="font-size: 12.86px;">NPM</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/Vue/" style="font-size: 18.57px;">Vue</a> <a href="/tags/axios/" style="font-size: 10px;">axios</a> <a href="/tags/element/" style="font-size: 11.43px;">element</a> <a href="/tags/%E4%BC%A0%E5%8F%82/" style="font-size: 14.29px;">传参</a> <a href="/tags/%E5%9D%91/" style="font-size: 11.43px;">坑</a> <a href="/tags/%E7%BB%84%E4%BB%B6/" style="font-size: 20px;">组件</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/03/11/(%E8%BD%AC%E8%BD%BD)%E6%95%B4%E7%90%86%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">(转载)整理常用正则表达式</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/05/(%E8%BD%AC%E8%BD%BD)Vue%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/">(转载)Vue依赖注入</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/27/v-html%E5%9B%BE%E7%89%87%E6%BA%A2%E5%87%BA/">v-html图片溢出</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/08/js%E8%8E%B7%E5%8F%96%E8%BF%91%E4%B8%89%E4%B8%AA%E6%9C%88%E3%80%81%E8%BF%91%E4%B8%80%E4%B8%AA%E6%9C%88%E3%80%81%E8%BF%91%E4%B8%80%E5%91%A8/">js获取近三个月、近一个月、近一周</a>
+          </li>
+        
+          <li>
+            <a href="/2020/09/20/JS%E4%BC%98%E5%8C%96/">$JS优化</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

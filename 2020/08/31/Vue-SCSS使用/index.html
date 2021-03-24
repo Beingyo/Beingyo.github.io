@@ -6,18 +6,18 @@
   
   <title>Vue-SCSS使用 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="npm安装 123npm install sass-loader@7.3.1 --save-devnpm install node-sass --savenpm install style-loader --save 在build文件夹下的webpack.base.conf.js的rules里面添加配置 1234&amp;#123;test: &#x2F;\.scss$&#x2F;,loaders: [&amp;#x27;style">
+  <meta name="description" content="记录新建vue项目如何使用scssnpm安装 123npm install sass-loader@7.3.1 --save-devnpm install node-sass --savenpm install style-loader --save 在build文件夹下的webpack.base.conf.js的rules里面添加配置 1234&amp;#123;test: &#x2F;\.scss$&#x2F;,load">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue-SCSS使用">
 <meta property="og:url" content="http://example.com/2020/08/31/Vue-SCSS%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="npm安装 123npm install sass-loader@7.3.1 --save-devnpm install node-sass --savenpm install style-loader --save 在build文件夹下的webpack.base.conf.js的rules里面添加配置 1234&amp;#123;test: &#x2F;\.scss$&#x2F;,loaders: [&amp;#x27;style">
+<meta property="og:description" content="记录新建vue项目如何使用scssnpm安装 123npm install sass-loader@7.3.1 --save-devnpm install node-sass --savenpm install style-loader --save 在build文件夹下的webpack.base.conf.js的rules里面添加配置 1234&amp;#123;test: &#x2F;\.scss$&#x2F;,load">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-08-30T16:40:40.000Z">
-<meta property="article:modified_time" content="2021-03-24T00:34:45.038Z">
+<meta property="article:modified_time" content="2021-03-24T07:43:31.459Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="CSS">
 <meta property="article:tag" content="Vue">
+<meta property="article:tag" content="NPM">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -82,7 +82,7 @@
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/CSS/">CSS</a>►<a class="article-category-link" href="/categories/CSS/Vue/">Vue</a>
+    <a class="article-category-link" href="/categories/Vue/">Vue</a>
   </div>
 
   </div>
@@ -101,11 +101,11 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>npm安装</p>
+        <h4 id="记录新建vue项目如何使用scss"><a href="#记录新建vue项目如何使用scss" class="headerlink" title="记录新建vue项目如何使用scss"></a>记录新建vue项目如何使用scss</h4><p>npm安装</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install sass-loader@7.3.1 --save-dev</span><br><span class="line">npm install node-sass --save</span><br><span class="line">npm install style-loader --save</span><br></pre></td></tr></table></figure>
 <p>在build文件夹下的webpack.base.conf.js的rules里面添加配置</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">test: <span class="regexp">/\.scss$/</span>,</span><br><span class="line">loaders: [<span class="string">&#x27;style&#x27;</span>, <span class="string">&#x27;css&#x27;</span>, <span class="string">&#x27;sass&#x27;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如果遇到：<font color=#DF402A> npm ERR! Failed at the <a href="mailto:&#110;&#x6f;&#100;&#x65;&#45;&#x73;&#x61;&#x73;&#115;&#x40;&#52;&#x2e;&#x31;&#52;&#x2e;&#x31;">&#110;&#x6f;&#100;&#x65;&#45;&#x73;&#x61;&#x73;&#115;&#x40;&#52;&#x2e;&#x31;&#52;&#x2e;&#x31;</a> postinstall script </font></p>
+<p>如果遇到：<font color=#DF402A> npm ERR! Failed at the <a href="mailto:&#110;&#x6f;&#100;&#101;&#x2d;&#x73;&#97;&#x73;&#x73;&#64;&#x34;&#46;&#x31;&#52;&#46;&#49;">&#110;&#x6f;&#100;&#101;&#x2d;&#x73;&#97;&#x73;&#x73;&#64;&#x34;&#46;&#x31;&#52;&#46;&#49;</a> postinstall script </font></p>
 <p>先进行node-sass 的数据源设置<br><font color=#DF402A> npm config set sass_binary_site=https:<font color=#DF402A>//npm.taobao.org/mirrors/node-sass </font></font></p>
 <p>再安装<br><font color=#DF402A> npm install –registry=https:<font color=#DF402A>//registry.npm.taobao.org </font></font></p>
 
@@ -116,7 +116,7 @@
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NPM/" rel="tag">NPM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li></ul>
 
     </footer>
   </div>
@@ -124,11 +124,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2020/08/31/%E8%83%8C%E6%99%AF%E8%89%B2%E5%A1%AB%E5%85%85/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/08/31/(%E8%BD%AC%E8%BD%BD)%E8%83%8C%E6%99%AF%E8%89%B2%E5%A1%AB%E5%85%85/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          背景色填充
+          (转载)背景色填充
         
       </div>
     </a>
@@ -153,7 +153,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/Vue/">Vue</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/JS/Vue/">Vue</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue/">Vue</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/NPM/">NPM</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BC%A0%E5%8F%82/">传参</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%9D%91/">坑</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%84%E4%BB%B6/">组件</a></li></ul>
     </div>
   </div>
 
@@ -163,7 +163,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/" rel="tag">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UI/" rel="tag">UI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/axios/" rel="tag">axios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/element/" rel="tag">element</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/" rel="tag">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NPM/" rel="tag">NPM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UI/" rel="tag">UI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/axios/" rel="tag">axios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/element/" rel="tag">element</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BC%A0%E5%8F%82/" rel="tag">传参</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9D%91/" rel="tag">坑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%84%E4%BB%B6/" rel="tag">组件</a></li></ul>
     </div>
   </div>
 
@@ -173,7 +173,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/JS/" style="font-size: 13.33px;">JS</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/Vue/" style="font-size: 16.67px;">Vue</a> <a href="/tags/axios/" style="font-size: 10px;">axios</a> <a href="/tags/element/" style="font-size: 10px;">element</a>
+      <a href="/tags/CSS/" style="font-size: 15.71px;">CSS</a> <a href="/tags/JS/" style="font-size: 17.14px;">JS</a> <a href="/tags/NPM/" style="font-size: 12.86px;">NPM</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/Vue/" style="font-size: 18.57px;">Vue</a> <a href="/tags/axios/" style="font-size: 10px;">axios</a> <a href="/tags/element/" style="font-size: 11.43px;">element</a> <a href="/tags/%E4%BC%A0%E5%8F%82/" style="font-size: 14.29px;">传参</a> <a href="/tags/%E5%9D%91/" style="font-size: 11.43px;">坑</a> <a href="/tags/%E7%BB%84%E4%BB%B6/" style="font-size: 20px;">组件</a>
     </div>
   </div>
 
@@ -182,7 +182,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li></ul>
     </div>
   </div>
 
@@ -195,23 +195,23 @@
       <ul>
         
           <li>
+            <a href="/2021/03/11/(%E8%BD%AC%E8%BD%BD)%E6%95%B4%E7%90%86%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">(转载)整理常用正则表达式</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/05/(%E8%BD%AC%E8%BD%BD)Vue%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/">(转载)Vue依赖注入</a>
+          </li>
+        
+          <li>
             <a href="/2021/01/27/v-html%E5%9B%BE%E7%89%87%E6%BA%A2%E5%87%BA/">v-html图片溢出</a>
           </li>
         
           <li>
-            <a href="/2020/08/31/axios%E5%B0%81%E8%A3%85%E4%BC%98%E5%8C%96/">axios封装优化</a>
+            <a href="/2021/01/08/js%E8%8E%B7%E5%8F%96%E8%BF%91%E4%B8%89%E4%B8%AA%E6%9C%88%E3%80%81%E8%BF%91%E4%B8%80%E4%B8%AA%E6%9C%88%E3%80%81%E8%BF%91%E4%B8%80%E5%91%A8/">js获取近三个月、近一个月、近一周</a>
           </li>
         
           <li>
-            <a href="/2020/08/31/js%E8%8E%B7%E5%8F%96%E6%9C%AC%E5%9C%B0%E6%97%B6%E9%97%B4/">js获取本地时间</a>
-          </li>
-        
-          <li>
-            <a href="/2020/08/31/%E6%95%B0%E6%8D%AE%E5%8E%BB%E9%87%8D/">JS数据去重</a>
-          </li>
-        
-          <li>
-            <a href="/2020/08/31/%E5%8E%9F%E7%94%9FJS%E4%BA%8B%E4%BB%B6/">原生JS事件</a>
+            <a href="/2020/09/20/JS%E4%BC%98%E5%8C%96/">$JS优化</a>
           </li>
         
       </ul>
