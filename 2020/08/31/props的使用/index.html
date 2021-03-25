@@ -6,15 +6,15 @@
   
   <title>props的使用 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="前言记录props的使用 第一种传递一个数组 1props:[&quot;cont&quot;]  第二种传递一个对象 123456props:&amp;#123;   uploadOption:&amp;#123;        type:Object,  &#x2F;&#x2F;参数类型必须是一个对象        required: true  &#x2F;&#x2F;这一种说明这个参数是必须的哈   &amp;#125;&amp;#125; 第三种基础的类型检">
+  <meta name="description" content="前言记录props的使用 第一种传递一个数组 1props:[&quot;cont&quot;]  第二种传递一个对象 123456props:&amp;#123;   uploadOption:&amp;#123;        type:Object,  &#x2F;&#x2F;参数类型必须是一个对象        required: true  &#x2F;&#x2F;这一种说明这个参数是必须的哈   &amp;#125;&amp;#125;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="props的使用">
 <meta property="og:url" content="http://example.com/2020/08/31/props%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="前言记录props的使用 第一种传递一个数组 1props:[&quot;cont&quot;]  第二种传递一个对象 123456props:&amp;#123;   uploadOption:&amp;#123;        type:Object,  &#x2F;&#x2F;参数类型必须是一个对象        required: true  &#x2F;&#x2F;这一种说明这个参数是必须的哈   &amp;#125;&amp;#125; 第三种基础的类型检">
+<meta property="og:description" content="前言记录props的使用 第一种传递一个数组 1props:[&quot;cont&quot;]  第二种传递一个对象 123456props:&amp;#123;   uploadOption:&amp;#123;        type:Object,  &#x2F;&#x2F;参数类型必须是一个对象        required: true  &#x2F;&#x2F;这一种说明这个参数是必须的哈   &amp;#125;&amp;#125;">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-08-30T18:11:11.000Z">
-<meta property="article:modified_time" content="2021-03-24T07:42:47.326Z">
+<meta property="article:modified_time" content="2021-03-25T01:07:56.442Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Vue">
 <meta property="article:tag" content="传参">
@@ -107,6 +107,7 @@
 
 <h3 id="第二种"><a href="#第二种" class="headerlink" title="第二种"></a>第二种</h3><p>传递一个对象</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">props:&#123;</span><br><span class="line">   uploadOption:&#123;</span><br><span class="line">        type:<span class="built_in">Object</span>,  <span class="comment">//参数类型必须是一个对象</span></span><br><span class="line">        required: <span class="literal">true</span>  <span class="comment">//这一种说明这个参数是必须的哈</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
 <h3 id="第三种"><a href="#第三种" class="headerlink" title="第三种"></a>第三种</h3><p>基础的类型检查 (null 和 undefined 会通过任何类型验证)</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">props: &#123;</span><br><span class="line">  </span><br><span class="line">    propA: <span class="built_in">Number</span>, <span class="comment">//如果不符合类型 控制台会警告</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 多个可能的类型</span></span><br><span class="line">    propB: [<span class="built_in">String</span>, <span class="built_in">Number</span>],</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 必填的字符串</span></span><br><span class="line">    propC: &#123;</span><br><span class="line">      type: <span class="built_in">String</span>,</span><br><span class="line">      required: <span class="literal">true</span>  <span class="comment">//必填</span></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 带有默认值的数字  propD是一个数字，如果没有值，默认是100</span></span><br><span class="line">    propD: &#123;</span><br><span class="line">      type: <span class="built_in">Number</span>,</span><br><span class="line">      <span class="keyword">default</span>: <span class="number">100</span></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 带有默认值的对象</span></span><br><span class="line">    propE: &#123;</span><br><span class="line">      type: <span class="built_in">Object</span>,</span><br><span class="line">      <span class="comment">// 对象或数组默认值必须从一个工厂函数获取</span></span><br><span class="line">      <span class="keyword">default</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> &#123; <span class="attr">message</span>: <span class="string">&#x27;hello&#x27;</span> &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 自定义验证函数</span></span><br><span class="line">    propF: &#123;</span><br><span class="line">      validator: <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 这个值必须匹配下列字符串中的一个</span></span><br><span class="line">        <span class="keyword">return</span> [<span class="string">&#x27;success&#x27;</span>, <span class="string">&#x27;warning&#x27;</span>, <span class="string">&#x27;danger&#x27;</span>].indexOf(value) !== -<span class="number">1</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
@@ -212,7 +213,7 @@
           </li>
         
           <li>
-            <a href="/2020/09/20/JS%E4%BC%98%E5%8C%96/">$JS优化</a>
+            <a href="/2020/09/20/JS%E4%BC%98%E5%8C%96/">JS优化</a>
           </li>
         
       </ul>

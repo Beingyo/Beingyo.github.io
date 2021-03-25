@@ -4,17 +4,17 @@
   <meta charset="utf-8">
   
   
-  <title>$JS优化 | Hexo</title>
+  <title>JS优化 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="前言本文最初发布于 Medium 网站，经原作者授权由 InfoQ 中文站翻译并分享 JavaScript 已经成为有史以来最受欢迎的编程语言之一。从 W3Tech 的数据来看，全世界将近 96％的网站都在使用它。关于 Web 有一个关键的事实是，你无法控制访问网站的用户所用设备。当用户访问你的网站时，使用的可能是高端设备也可能是低端设备，网络连接条件也有好有差。这意味着你必须尽可能优化自己的网站">
 <meta property="og:type" content="article">
-<meta property="og:title" content="$JS优化">
+<meta property="og:title" content="JS优化">
 <meta property="og:url" content="http://example.com/2020/09/20/JS%E4%BC%98%E5%8C%96/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="前言本文最初发布于 Medium 网站，经原作者授权由 InfoQ 中文站翻译并分享 JavaScript 已经成为有史以来最受欢迎的编程语言之一。从 W3Tech 的数据来看，全世界将近 96％的网站都在使用它。关于 Web 有一个关键的事实是，你无法控制访问网站的用户所用设备。当用户访问你的网站时，使用的可能是高端设备也可能是低端设备，网络连接条件也有好有差。这意味着你必须尽可能优化自己的网站">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-09-19T17:16:16.000Z">
-<meta property="article:modified_time" content="2021-03-24T07:42:47.336Z">
+<meta property="article:modified_time" content="2021-03-25T01:07:56.739Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary">
@@ -92,7 +92,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      $JS优化
+      JS优化
     </h1>
   
 
@@ -102,7 +102,9 @@
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><font color=#999AAA >本文最初发布于 Medium 网站，经原作者授权由 InfoQ 中文站翻译并分享</font></p>
 <p>JavaScript 已经成为有史以来最受欢迎的编程语言之一。从 W3Tech 的数据来看，全世界将近 96％的网站都在使用它。关于 Web 有一个关键的事实是，你无法控制访问网站的用户所用设备。当用户访问你的网站时，使用的可能是高端设备也可能是低端设备，网络连接条件也有好有差。这意味着你必须尽可能优化自己的网站，以满足任何用户的需求。<br>附带提一下，请共享和重用你的 JS 组件，以在高质量代码（写起来需要花费时间）和合理的交付时间之间保持适当的平衡。你可以使用 Bit 等流行工具将任何项目中的组件（普通 JS、TS、React、Vue 等）共享到 Bit 的组件中心，用不了多大功夫。</p>
-<h3 id="1、删除未使用的代码和功能"><a href="#1、删除未使用的代码和功能" class="headerlink" title="1、删除未使用的代码和功能"></a>1、删除未使用的代码和功能</h3><p>你的应用程序包含的代码越多，就需要将更多的数据传输到客户端。浏览器也需要更多时间来分析和解释代码。<br>有时，你可能打包了很多根本用不到的功能。最好只在开发环境中保留这些额外的代码，而不要将其推送到生产环境中，以免给客户端的浏览器增加负担。<br>要不断问自己，某个功能或代码段是否是必要的。<br>你可以手动移除未使用的代码，也可以使用 Uglify 或谷歌的 Closure Compiler 之类的工具删除它们。你还可以使用一种被称为摇树优化的技术从应用程序中删除未使用的代码。Webpack 这类打包软件提供了这种技术，详情可以参考这里：</p>
+<h3 id="1、删除未使用的代码和功能"><a href="#1、删除未使用的代码和功能" class="headerlink" title="1、删除未使用的代码和功能"></a>1、删除未使用的代码和功能</h3><p>你的应用程序包含的代码越多，就需要将更多的数据传输到客户端。浏览器也需要更多时间来分析和解释代码。</p>
+<span id="more"></span>
+<p>有时，你可能打包了很多根本用不到的功能。最好只在开发环境中保留这些额外的代码，而不要将其推送到生产环境中，以免给客户端的浏览器增加负担。<br>要不断问自己，某个功能或代码段是否是必要的。<br>你可以手动移除未使用的代码，也可以使用 Uglify 或谷歌的 Closure Compiler 之类的工具删除它们。你还可以使用一种被称为摇树优化的技术从应用程序中删除未使用的代码。Webpack 这类打包软件提供了这种技术，详情可以参考这里：</p>
 <p><a target="_blank" rel="noopener" href="https://www.infoq.cn/article/dcKcJiT8aeEBNZbdotFF">https://www.infoq.cn/article/dcKcJiT8aeEBNZbdotFF</a></p>
 <p>如果要删除未使用的 npm 软件包，可以使用命令 npm prune，详细信息参考 NPM 文档。</p>
 <p><a target="_blank" rel="noopener" href="https://docs.npmjs.com/cli-commands/prune.html">https://docs.npmjs.com/cli-commands/prune.html</a></p>
@@ -142,19 +144,22 @@
 <p>可是等等……</p>
 <p>JavaScript 默认情况下是同步的，并且也是单线程的。<br>如何在单个线程上运行异步代码呢？这是很多人感到困惑的地方。做到这一点，主要依赖运行在浏览器后台的 JavaScript 引擎。JavaScript 引擎是执行 JavaScript 代码的计算机程序或解释器。JavaScript 引擎可以用多种语言编写。例如，支持 Chrome 浏览器的 V8 引擎是用 C++ 编写的，而支持 Firefox 浏览器的 SpiderMonkey 引擎是用 C 和 C++ 编写的。<br>这些 JavaScript 引擎可以在后台处理任务。根据 Brian 的说法，调用栈可以识别 Web API 的函数，并将其交给浏览器处理。浏览器完成这些任务后，它们将返回并作为回调被推上堆栈。<br>你可能想知道 Node.js 是怎么做这些工作的，毕竟它没有浏览器的帮助。实际上，支持 Chrome 的那个 V8 引擎也是 Node.js 背后的支撑。这里有 Salil 的一篇很棒的博客文章，解释了 Node 生态系统中的这一过程。</p>
 <p><a target="_blank" rel="noopener" href="https://medium.com/better-programming/is-node-js-really-single-threaded-7ea59bcc8d64">https://medium.com/better-programming/is-node-js-really-single-threaded-7ea59bcc8d64</a></p>
-<h3 id="12、使用代码拆分"><a href="#12、使用代码拆分" class="headerlink" title="12、使用代码拆分"></a>12、使用代码拆分</h3><p>如果你有使用 Google Light House 的经验，肯定会熟悉一种称为“first contentful paint”的指标。它是 Lighthouse 报告的 Performance 部分中跟踪的六个指标之一。<br>First Contentful Paint（FCP）衡量用户转到你的页面后浏览器渲染第一段 DOM 内容所花费的时间。页面上的图像、非白色<canvas>元素和 SVG 被视为 DOM 内容；iframe 内部不包含任何内容。<br>获得更高的 FCP 分数的最佳方法之一是使用代码拆分。代码拆分是一种在传输开始时仅将必要的模块发送给用户的技术。通过减小最初发送的载荷大小，这将极大地影响 FCP 分数。<br>流行的模块打包器（例如 webpack）可为你提供代码拆分功能。你还可以利用原生 ES 模块来单独加载各个模块。你可以在此处详细了解有关原生 ES 模块的信息。</p>
+<h3 id="12、使用代码拆分"><a href="#12、使用代码拆分" class="headerlink" title="12、使用代码拆分"></a>12、使用代码拆分</h3><p>如果你有使用 Google Light House 的经验，肯定会熟悉一种称为“first contentful paint”的指标。它是 Lighthouse 报告的 Performance 部分中跟踪的六个指标之一。</p>
+<p>First Contentful Paint（FCP）衡量用户转到你的页面后浏览器渲染第一段 DOM 内容所花费的时间。页面上的图像、非白色&lt;canvas&gt;元素和 SVG 被视为 DOM 内容；iframe 内部不包含任何内容。</p>
+<p>获得更高的 FCP 分数的最佳方法之一是使用代码拆分。代码拆分是一种在传输开始时仅将必要的模块发送给用户的技术。通过减小最初发送的载荷大小，这将极大地影响 FCP 分数。<br>流行的模块打包器（例如 webpack）可为你提供代码拆分功能。你还可以利用原生 ES 模块来单独加载各个模块。你可以在此处详细了解有关原生 ES 模块的信息。</p>
 <p><a target="_blank" rel="noopener" href="https://blog.bitsrc.io/understanding-es-modules-in-javascript-a28fec420f73">https://blog.bitsrc.io/understanding-es-modules-in-javascript-a28fec420f73</a></p>
-<h3 id="13、使用-async-和-defer"><a href="#13、使用-async-和-defer" class="headerlink" title="13、使用 async 和 defer"></a>13、使用 async 和 defer</h3><p>在现代网站中，脚本比 HTML 更为密集，其大小更大且消耗更多的处理时间。默认情况下，浏览器必须等待脚本下载和执行完毕后，再处理页面的其余部分。<br>于是笨重的脚本可能会阻止网页的加载。为了避免这种情况，JavaScript 为我们提供了两种分别称为 async 和 defer 的技术。你只需将这些属性添加到<script>标记中即可。<br>Async 会让浏览器在不影响渲染的情况下加载脚本。换句话说，页面不会等待 async 脚本，而是先处理和显示内容。<br>Defer 是让浏览器在渲染完成后加载脚本。如果同时指定它们两者，则 async 在现代浏览器上更优先，而支持 defer 但不支持 async 的老式浏览器将回退为 defer。<br>这两个属性可以帮助你大幅减少页面加载时间。我强烈建议你阅读 Flavio 的这篇博客文章。</p>
+<h3 id="13、使用-async-和-defer"><a href="#13、使用-async-和-defer" class="headerlink" title="13、使用 async 和 defer"></a>13、使用 async 和 defer</h3><p>在现代网站中，脚本比 HTML 更为密集，其大小更大且消耗更多的处理时间。默认情况下，浏览器必须等待脚本下载和执行完毕后，再处理页面的其余部分。</p>
+<p>于是笨重的脚本可能会阻止网页的加载。为了避免这种情况，JavaScript 为我们提供了两种分别称为 async 和 defer 的技术。你只需将这些属性添加到&lt;script&gt;标记中即可。<br>Async 会让浏览器在不影响渲染的情况下加载脚本。换句话说，页面不会等待 async 脚本，而是先处理和显示内容。</p>
+<p>Defer 是让浏览器在渲染完成后加载脚本。如果同时指定它们两者，则 async 在现代浏览器上更优先，而支持 defer 但不支持 async 的老式浏览器将回退为 defer。<br>这两个属性可以帮助你大幅减少页面加载时间。我强烈建议你阅读 Flavio 的这篇博客文章。</p>
 <p><a target="_blank" rel="noopener" href="https://flaviocopes.com/javascript-async-defer/">https://flaviocopes.com/javascript-async-defer/</a></p>
 <h3 id="14、在后台运行-CPU-密集型任务"><a href="#14、在后台运行-CPU-密集型任务" class="headerlink" title="14、在后台运行 CPU 密集型任务"></a>14、在后台运行 CPU 密集型任务</h3><p>可以使用 Web Worker 在后台线程中运行脚本。如果你有一些高强度的任务，可以将它们分配给 Web Worker，这些 WebWorker 可以在不干扰用户界面的情况下运行它们。创建后，Web Worker 可以将消息发布到该代码指定的事件处理程序来与 JavaScript 代码通信，反之亦然。<br>要了解有关 Web Worker 的更多信息，建议你阅读 MDN 文档：</p>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers">https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers</a></p>
-<p>延伸阅读</p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers">https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers</a><br>延伸阅读</p>
 <p><a target="_blank" rel="noopener" href="https://blog.bitsrc.io/14-javascript-code-optimization-tips-for-front-end-developers-a44763d3a0da">https://blog.bitsrc.io/14-javascript-code-optimization-tips-for-front-end-developers-a44763d3a0da</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/09/20/JS%E4%BC%98%E5%8C%96/" data-id="ckmn4ygpq000gpst7gxbud7qo" data-title="$JS优化" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/09/20/JS%E4%BC%98%E5%8C%96/" data-id="ckmn4ygpq000gpst7gxbud7qo" data-title="JS优化" class="article-share-link">Share</a>
       
       
       
@@ -176,9 +181,9 @@
     </a>
   
   
-    <a href="/2020/09/01/18/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/09/01/(%E7%BB%84%E4%BB%B6)%E5%8C%B9%E9%85%8D%E5%AD%97%E7%AC%A6%E6%B7%BB%E5%8A%A0html%E6%A0%87%E7%AD%BE/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">匹配字符添加html标签</div>
+      <div class="article-nav-title">(组件)匹配字符添加html标签</div>
     </a>
   
 </nav>
@@ -253,7 +258,7 @@
           </li>
         
           <li>
-            <a href="/2020/09/20/JS%E4%BC%98%E5%8C%96/">$JS优化</a>
+            <a href="/2020/09/20/JS%E4%BC%98%E5%8C%96/">JS优化</a>
           </li>
         
       </ul>

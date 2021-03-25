@@ -14,7 +14,7 @@
 <meta property="og:description" content="记录新建vue项目如何使用scssnpm安装 123npm install sass-loader@7.3.1 --save-devnpm install node-sass --savenpm install style-loader --save 在build文件夹下的webpack.base.conf.js的rules里面添加配置 1234&amp;#123;test: &#x2F;\.scss$&#x2F;,load">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-08-30T16:40:40.000Z">
-<meta property="article:modified_time" content="2021-03-24T07:43:31.459Z">
+<meta property="article:modified_time" content="2021-03-25T01:07:56.689Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Vue">
 <meta property="article:tag" content="NPM">
@@ -105,7 +105,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install sass-loader@7.3.1 --save-dev</span><br><span class="line">npm install node-sass --save</span><br><span class="line">npm install style-loader --save</span><br></pre></td></tr></table></figure>
 <p>在build文件夹下的webpack.base.conf.js的rules里面添加配置</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">test: <span class="regexp">/\.scss$/</span>,</span><br><span class="line">loaders: [<span class="string">&#x27;style&#x27;</span>, <span class="string">&#x27;css&#x27;</span>, <span class="string">&#x27;sass&#x27;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如果遇到：<font color=#DF402A> npm ERR! Failed at the <a href="mailto:&#110;&#x6f;&#100;&#101;&#x2d;&#x73;&#97;&#x73;&#x73;&#64;&#x34;&#46;&#x31;&#52;&#46;&#49;">&#110;&#x6f;&#100;&#101;&#x2d;&#x73;&#97;&#x73;&#x73;&#64;&#x34;&#46;&#x31;&#52;&#46;&#49;</a> postinstall script </font></p>
+<span id="more"></span>
+<p>如果遇到：<font color=#DF402A> npm ERR! Failed at the <a href="mailto:&#110;&#111;&#100;&#101;&#x2d;&#115;&#97;&#x73;&#x73;&#x40;&#x34;&#46;&#49;&#x34;&#46;&#49;">&#110;&#111;&#100;&#101;&#x2d;&#115;&#97;&#x73;&#x73;&#x40;&#x34;&#46;&#49;&#x34;&#46;&#49;</a> postinstall script </font></p>
 <p>先进行node-sass 的数据源设置<br><font color=#DF402A> npm config set sass_binary_site=https:<font color=#DF402A>//npm.taobao.org/mirrors/node-sass </font></font></p>
 <p>再安装<br><font color=#DF402A> npm install –registry=https:<font color=#DF402A>//registry.npm.taobao.org </font></font></p>
 
@@ -211,7 +212,7 @@
           </li>
         
           <li>
-            <a href="/2020/09/20/JS%E4%BC%98%E5%8C%96/">$JS优化</a>
+            <a href="/2020/09/20/JS%E4%BC%98%E5%8C%96/">JS优化</a>
           </li>
         
       </ul>

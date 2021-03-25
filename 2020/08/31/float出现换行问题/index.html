@@ -6,15 +6,15 @@
   
   <title>float出现换行问题 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="1、float: right的使用用法:使用html代码&lt;span style&#x3D;”float: right”&gt;*****,其中*****就是你想靠右的内容,比如一个日期:{date1},如果想让此元素靠右,则应该写:&lt;span style&#x3D;”float:right”&gt;{date1}&lt;&#x2F;span&gt; 2、当使用span标签时,我们经常发现:靠右的元素和前面的元素被自">
+  <meta name="description" content="1、float: right的使用用法:使用html代码&lt;span style&#x3D;”float: right”&gt;*****,其中*****就是你想靠右的内容,比如一个日期:{date1},如果想让此元素靠右,则应该写:&lt;span style&#x3D;”float:right”&gt;{date1}&lt;&#x2F;span&gt;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="float出现换行问题">
 <meta property="og:url" content="http://example.com/2020/08/31/float%E5%87%BA%E7%8E%B0%E6%8D%A2%E8%A1%8C%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1、float: right的使用用法:使用html代码&lt;span style&#x3D;”float: right”&gt;*****,其中*****就是你想靠右的内容,比如一个日期:{date1},如果想让此元素靠右,则应该写:&lt;span style&#x3D;”float:right”&gt;{date1}&lt;&#x2F;span&gt; 2、当使用span标签时,我们经常发现:靠右的元素和前面的元素被自">
+<meta property="og:description" content="1、float: right的使用用法:使用html代码&lt;span style&#x3D;”float: right”&gt;*****,其中*****就是你想靠右的内容,比如一个日期:{date1},如果想让此元素靠右,则应该写:&lt;span style&#x3D;”float:right”&gt;{date1}&lt;&#x2F;span&gt;">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-08-30T16:20:20.000Z">
-<meta property="article:modified_time" content="2021-03-24T07:42:31.430Z">
+<meta property="article:modified_time" content="2021-03-25T01:07:56.392Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="CSS">
 <meta name="twitter:card" content="summary">
@@ -101,6 +101,7 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <p>1、float: right的使用用法:使用html代码&lt;span style=”float: right”&gt;*****</SPAN>,其中*****就是你想靠右的内容,比如一个日期:{date1},如果想让此元素靠右,则应该写:&lt;span style=”float:right”&gt;{date1}&lt;/span&gt;</p>
+<span id="more"></span>
 <p>2、当使用span标签时,我们经常发现:靠右的元素和前面的元素被自动换行了,即不再在同一行内,原因是:当“非float的元素”和“float的元素”在一起的时候,如果非float元素在先,那么float的元素将受到排斥。也就是说:如果你在设置span是float:right时,把他放在所有元素的最前面就正常了,以下为举例(调用三个元素,想让第三个元素靠右显示)</p>
 <p>按下面这种顺序输入的方法是错误的:<br><br><br><font color=#528CD8>{forum}{subject}</font><font color=#DF402A>&lt;span style=”float: right”&gt;{date1}&lt;/span&gt;</font></p>
 <p>正确的方法:<br><br><br><font color=#DF402A>&lt;span style=”float: right”&gt;{date1}&lt;/span&gt;</font><font color=#528CD8>{forum}{subject}</font></p>
@@ -208,7 +209,7 @@
           </li>
         
           <li>
-            <a href="/2020/09/20/JS%E4%BC%98%E5%8C%96/">$JS优化</a>
+            <a href="/2020/09/20/JS%E4%BC%98%E5%8C%96/">JS优化</a>
           </li>
         
       </ul>
