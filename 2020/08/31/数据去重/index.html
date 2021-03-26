@@ -1,18 +1,17 @@
 <!DOCTYPE HTML>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   
-  <title>JS数据去重 | Hexo</title>
-  <meta name="author" content="John Doe">
+  <title>JS数据去重 | Tamako</title>
+  <meta name="author" content="bug源">
   
-  <meta name="description" content="记录三种类型数据去重的处理方法1、单个数组内部
-123456// 去重，对&amp;#123;&amp;#125;无效var string= [1,1,&amp;#x27;true&amp;#x27;,&amp;#x27;true&amp;#x27;,true,true,15,15,false,false, undefined,undefined, null,null, NaN, NaN,&amp;#x27;NaN&amp;#x27;, 0, 0, &amp;#x27;a&amp;#x27;, &amp;#x27;a&amp;#x27;,&amp;#123;&amp;#125;,&amp;#123;&amp;#125;]console.log(&amp;#x27;去重前的数据&amp;#x27; + JSON.stringify(string)))string = Array.from(new Set(string))console.log(&amp;#x27;去重后的数据&amp;#x27; + JSON.stringify(string)))// [1, &amp;#x27;true&amp;#x27;, true, 15 ,false, undefined, null, NaN, &amp;#x27;NaN&amp;#x27;, 0, &amp;#x27;a&amp;#x27;,&amp;#123;&amp;#125;,&amp;#123;&amp;#125;]">
+  <meta name="description" content="只为记录">
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <meta property="og:title" content="JS数据去重"/>
-  <meta property="og:site_name" content="Hexo"/>
+  <meta property="og:site_name" content="Tamako"/>
 
   
     <meta property="og:image" content=""/>
@@ -31,7 +30,7 @@
 
 <body>
   <header id="header" class="inner"><div class="alignleft">
-  <h1><a href="/">Hexo</a></h1>
+  <h1><a href="/">Tamako</a></h1>
   <h2><a href="/"></a></h2>
 </div>
 <nav id="main-nav" class="alignright">
@@ -63,13 +62,13 @@
     </header>
     <div class="e-content entry" itemprop="articleBody">
       
-        <h4 id="记录三种类型数据去重的处理方法"><a href="#记录三种类型数据去重的处理方法" class="headerlink" title="记录三种类型数据去重的处理方法"></a>记录三种类型数据去重的处理方法</h4><p>1、单个数组内部</p>
+        <h4 id="记录三种类型数据去重的处理方法"><a href="#记录三种类型数据去重的处理方法" class="headerlink" title="记录三种类型数据去重的处理方法"></a>记录三种类型数据去重的处理方法</h4><p>#####1、单个数组内部</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 去重，对&#123;&#125;无效</span></span><br><span class="line"><span class="keyword">var</span> string= [<span class="number">1</span>,<span class="number">1</span>,<span class="string">&#x27;true&#x27;</span>,<span class="string">&#x27;true&#x27;</span>,<span class="literal">true</span>,<span class="literal">true</span>,<span class="number">15</span>,<span class="number">15</span>,<span class="literal">false</span>,<span class="literal">false</span>, <span class="literal">undefined</span>,<span class="literal">undefined</span>, <span class="literal">null</span>,<span class="literal">null</span>, <span class="literal">NaN</span>, <span class="literal">NaN</span>,<span class="string">&#x27;NaN&#x27;</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;a&#x27;</span>,&#123;&#125;,&#123;&#125;]</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;去重前的数据&#x27;</span> + <span class="built_in">JSON</span>.stringify(string)))</span><br><span class="line">string = <span class="built_in">Array</span>.from(<span class="keyword">new</span> <span class="built_in">Set</span>(string))</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;去重后的数据&#x27;</span> + <span class="built_in">JSON</span>.stringify(string)))</span><br><span class="line"><span class="comment">// [1, &#x27;true&#x27;, true, 15 ,false, undefined, null, NaN, &#x27;NaN&#x27;, 0, &#x27;a&#x27;,&#123;&#125;,&#123;&#125;]</span></span><br></pre></td></tr></table></figure>
 <span id="more"></span>
-<p>2、根据数组对象单个属性</p>
+<p>#####2、根据数组对象单个属性</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [</span><br><span class="line">  &#123;</span><br><span class="line">   <span class="keyword">from</span>:<span class="string">&#x27;张三&#x27;</span>,</span><br><span class="line">   to: <span class="string">&#x27;河南&#x27;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">from</span>:<span class="string">&#x27;王二&#x27;</span>,</span><br><span class="line">    to: <span class="string">&#x27;阿里&#x27;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">from</span>:<span class="string">&#x27;王二&#x27;</span>,</span><br><span class="line">    to: <span class="string">&#x27;杭州&#x27;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">from</span>:<span class="string">&#x27;王二&#x27;</span>,</span><br><span class="line">    to: <span class="string">&#x27;山东&#x27;</span></span><br><span class="line">  &#125;,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique</span>(<span class="params">arr1</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> res = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line">  <span class="keyword">return</span> arr1.filter(<span class="function">(<span class="params">a</span>) =&gt;</span> !res.has(a.from) &amp;&amp; res.set(a.from, <span class="number">1</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>3、根据数组对象多个对象</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [</span><br><span class="line">      &#123;</span><br><span class="line">        maxDeptCode: <span class="string">&quot;md3&quot;</span>,</span><br><span class="line">        maxDeptName: <span class="string">&quot;泡泡&quot;</span>,</span><br><span class="line">        minDeptCode: <span class="string">&quot;md301&quot;</span>,</span><br><span class="line">        minDeptName: <span class="string">&quot;泡泡少儿&quot;</span>,</span><br><span class="line">        schoolId: <span class="number">1</span>,</span><br><span class="line">        schoolName: <span class="string">&quot;北京&quot;</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        maxDeptCode: <span class="string">&quot;md2&quot;</span>,</span><br><span class="line">        maxDeptName: <span class="string">&quot;中学&quot;</span>,</span><br><span class="line">        minDeptCode: <span class="string">&quot;md201&quot;</span>,</span><br><span class="line">        minDeptName: <span class="string">&quot;中学一对一&quot;</span>,</span><br><span class="line">        schoolId: <span class="number">1</span>,</span><br><span class="line">        schoolName: <span class="string">&quot;北京&quot;</span>,</span><br><span class="line">      &#125;, &#123;</span><br><span class="line">        maxDeptCode: <span class="string">&quot;md3&quot;</span>,</span><br><span class="line">        maxDeptName: <span class="string">&quot;泡泡&quot;</span>,</span><br><span class="line">        minDeptCode: <span class="string">&quot;md301&quot;</span>,</span><br><span class="line">        minDeptName: <span class="string">&quot;泡泡少儿&quot;</span>,</span><br><span class="line">        schoolId: <span class="number">1</span>,</span><br><span class="line">        schoolName: <span class="string">&quot;北京&quot;</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">    ];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">process</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">      <span class="comment">// 缓存用于记录</span></span><br><span class="line">      <span class="keyword">const</span> cache = [];</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">const</span> t <span class="keyword">of</span> arr) &#123;</span><br><span class="line">        <span class="comment">// 检查缓存中是否已经存在</span></span><br><span class="line">        <span class="keyword">if</span> (cache.find(<span class="function"><span class="params">c</span> =&gt;</span> c.maxDeptCode === t.maxDeptCode &amp;&amp; c.minDeptCode === t.minDeptCode)) &#123;</span><br><span class="line">          <span class="comment">// 已经存在说明以前记录过，现在这个就是多余的，直接忽略</span></span><br><span class="line">          <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 不存在就说明以前没遇到过，把它记录下来</span></span><br><span class="line">        cache.push(t);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 记录结果就是过滤后的结果</span></span><br><span class="line">      <span class="keyword">return</span> cache;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(process(arr));</span><br></pre></td></tr></table></figure>
+<p>#####3、根据数组对象多个对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [</span><br><span class="line">    &#123;</span><br><span class="line">        maxDeptCode: <span class="string">&quot;md3&quot;</span>,</span><br><span class="line">        maxDeptName: <span class="string">&quot;泡泡&quot;</span>,</span><br><span class="line">        minDeptCode: <span class="string">&quot;md301&quot;</span>,</span><br><span class="line">        minDeptName: <span class="string">&quot;泡泡少儿&quot;</span>,</span><br><span class="line">        schoolId: <span class="number">1</span>,</span><br><span class="line">        schoolName: <span class="string">&quot;北京&quot;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        maxDeptCode: <span class="string">&quot;md2&quot;</span>,</span><br><span class="line">        maxDeptName: <span class="string">&quot;中学&quot;</span>,</span><br><span class="line">        minDeptCode: <span class="string">&quot;md201&quot;</span>,</span><br><span class="line">        minDeptName: <span class="string">&quot;中学一对一&quot;</span>,</span><br><span class="line">        schoolId: <span class="number">1</span>,</span><br><span class="line">        schoolName: <span class="string">&quot;北京&quot;</span>,</span><br><span class="line">    &#125;, &#123;</span><br><span class="line">        maxDeptCode: <span class="string">&quot;md3&quot;</span>,</span><br><span class="line">        maxDeptName: <span class="string">&quot;泡泡&quot;</span>,</span><br><span class="line">        minDeptCode: <span class="string">&quot;md301&quot;</span>,</span><br><span class="line">        minDeptName: <span class="string">&quot;泡泡少儿&quot;</span>,</span><br><span class="line">        schoolId: <span class="number">1</span>,</span><br><span class="line">        schoolName: <span class="string">&quot;北京&quot;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">process</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 缓存用于记录</span></span><br><span class="line">    <span class="keyword">const</span> cache = [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> t <span class="keyword">of</span> arr) &#123;</span><br><span class="line">        <span class="comment">// 检查缓存中是否已经存在</span></span><br><span class="line">        <span class="keyword">if</span> (cache.find(<span class="function"><span class="params">c</span> =&gt;</span> c.maxDeptCode === t.maxDeptCode &amp;&amp; c.minDeptCode === t.minDeptCode)) &#123;</span><br><span class="line">            <span class="comment">// 已经存在说明以前记录过，现在这个就是多余的，直接忽略</span></span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 不存在就说明以前没遇到过，把它记录下来</span></span><br><span class="line">        cache.push(t);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 记录结果就是过滤后的结果</span></span><br><span class="line">    <span class="keyword">return</span> cache;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(process(arr));</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer>
@@ -112,7 +111,7 @@
 
 
 <section id="comment">
-  <h1 class="title">Comments</h1>
+  <h1 class="title">留言</h1>
 
   
       <div id="fb-root"></div>
@@ -126,7 +125,7 @@
   }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<div class="fb-comments" data-href="http://example.com/2020/08/31/%E6%95%B0%E6%8D%AE%E5%8E%BB%E9%87%8D/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+<div class="fb-comments" data-href="https://beingyo.github.io/2020/08/31/%E6%95%B0%E6%8D%AE%E5%8E%BB%E9%87%8D/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
       
   
 </section>
@@ -135,15 +134,15 @@
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="Search">
-    <input type="hidden" name="as_sitesearch" value="example.com">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="as_sitesearch" value="beingyo.github.io">
   </form>
 </div>
 
 
   
 <div class="widget tag">
-  <h3 class="title">Categories</h3>
+  <h3 class="title">分类</h3>
   <ul class="entry">
   
     <li><a href="/categories/CSS/">CSS</a><small>8</small></li>
@@ -166,12 +165,12 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">标签</h3>
   <ul class="entry">
   
-    <li><a href="/tags/CSS/">CSS</a><small>8</small></li>
+    <li><a href="/tags/CSS/">CSS</a><small>10</small></li>
   
-    <li><a href="/tags/JS/">JS</a><small>9</small></li>
+    <li><a href="/tags/JS/">JS</a><small>15</small></li>
   
     <li><a href="/tags/NPM/">NPM</a><small>3</small></li>
   
@@ -181,7 +180,7 @@
   
     <li><a href="/tags/axios/">axios</a><small>1</small></li>
   
-    <li><a href="/tags/element/">element</a><small>2</small></li>
+    <li><a href="/tags/element/">element</a><small>11</small></li>
   
     <li><a href="/tags/%E4%BC%A0%E5%8F%82/">传参</a><small>4</small></li>
   
@@ -197,7 +196,7 @@
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
   
-  &copy; 2021 John Doe
+  &copy; 2021 bug源
   
 </div>
 <div class="clearfix"></div></footer>

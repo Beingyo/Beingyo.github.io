@@ -1,15 +1,17 @@
 <!DOCTYPE HTML>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo</title>
-  <meta name="author" content="John Doe">
+  <title>Tamako</title>
+  <meta name="author" content="bug源">
+  
+  <meta name="description" content="只为记录">
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-  <meta property="og:site_name" content="Hexo"/>
+  <meta property="og:site_name" content="Tamako"/>
 
   
     <meta property="og:image" content=""/>
@@ -28,7 +30,7 @@
 
 <body>
   <header id="header" class="inner"><div class="alignleft">
-  <h1><a href="/">Hexo</a></h1>
+  <h1><a href="/">Tamako</a></h1>
   <h2><a href="/"></a></h2>
 </div>
 <nav id="main-nav" class="alignright">
@@ -61,7 +63,7 @@
     </header>
     <div class="e-content entry" itemprop="articleBody">
       
-        <p>转载自：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/pythonywy/p/11369847.html">金振宗</a></p>
+        <p>转载自：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/jinzhenzong/p/12374199.html">金振宗</a></p>
 <h2 id="常用正则表达式整理"><a href="#常用正则表达式整理" class="headerlink" title="常用正则表达式整理"></a>常用正则表达式整理</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//自然数，包含0和正整数</span></span><br><span class="line">/^[\+]?(([<span class="number">1</span>-<span class="number">9</span>]\d*)|\d)$/,</span><br><span class="line"><span class="comment">// 数字 ---- 正负 小数整数都可以</span></span><br><span class="line">/^[+-]?(?!\.)(\d*)(\.)*(\d+)$/,</span><br><span class="line"><span class="comment">// 数字  ---- 正负 整数</span></span><br><span class="line">/^[+-]?[<span class="number">0</span>-<span class="number">9</span>]*$/,</span><br><span class="line"><span class="comment">// 正整数 </span></span><br><span class="line">/^[+]?[<span class="number">0</span>-<span class="number">9</span>]*[<span class="number">1</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>]*$/,</span><br><span class="line"><span class="comment">//正小数</span></span><br><span class="line">/^[+]?(?!\.)(\d*)(\.)+(\d+)$/,</span><br><span class="line"><span class="comment">// 正数</span></span><br><span class="line">/^[+]?(?!\.)(\d*)(\.)*(\d+)$/,</span><br><span class="line"><span class="comment">//负数</span></span><br><span class="line">/^[-]+(?!\.)(\d+)(\.)*(\d+)$/,</span><br><span class="line"><span class="comment">//负小数</span></span><br><span class="line">/^[-]+(?!\.)(\d+)(\.)+(\d+)$/,</span><br><span class="line"><span class="comment">//负整数</span></span><br><span class="line">/^[-]?[<span class="number">0</span>-<span class="number">9</span>]*[<span class="number">1</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>]*$/,</span><br><span class="line"><span class="comment">//汉字</span></span><br><span class="line">/\p&#123;Unified_Ideograph&#125;/u,</span><br><span class="line"><span class="comment">//emai</span></span><br><span class="line">/^([a-zA-Z0-<span class="number">9</span>]+[_|\_|\.]?)*[a-zA-Z0-<span class="number">9</span>]+@([a-zA-Z0-<span class="number">9</span>]+[_|\_|\.]?)*[a-zA-Z0-<span class="number">9</span>]+\.[a-zA-Z]&#123;<span class="number">2</span>,<span class="number">3</span>&#125;$/,</span><br><span class="line"><span class="comment">//url</span></span><br><span class="line">/^((https|http)?:\/\/)([<span class="number">0</span>-9a-z.]+)(:[<span class="number">0</span>-<span class="number">9</span>]+)?([<span class="regexp">/0-9a-z.]+)?(\?[0-9a-z&amp;=]+)?(#[0-9-a-z]+)?/i</span>,</span><br><span class="line"><span class="string">&quot;https&quot;</span>:<span class="regexp">/^((https)?:\/\/)([0-9a-z.]+)(:[0-9]+)?([/0-9a-z.]+)?(\?[0-9a-z&amp;=]+)?(#[0-9-a-z]+)?/i</span>,</span><br><span class="line"><span class="string">&quot;http&quot;</span>:<span class="regexp">/^((http)?:\/\/)([0-9a-z.]+)(:[0-9]+)?([/0-9a-z.]+)?(\?[0-9a-z&amp;=]+)?(#[0-9-a-z]+)?/i</span>,</span><br><span class="line"></span><br><span class="line"><span class="comment">//身份证</span></span><br><span class="line">/[<span class="number">1</span>-<span class="number">9</span>]\d&#123;<span class="number">13</span>,<span class="number">16</span>&#125;[a-zA-Z0-<span class="number">9</span>]&#123;<span class="number">1</span>&#125;/,</span><br><span class="line"><span class="comment">//手机号 不包含固话</span></span><br><span class="line">/^((<span class="number">13</span>[<span class="number">0</span>-<span class="number">9</span>])|(<span class="number">15</span>[^<span class="number">4</span>])|(<span class="number">18</span>[<span class="number">0</span>-<span class="number">9</span>])|(<span class="number">17</span>[<span class="number">0</span>-<span class="number">9</span>])|(<span class="number">147</span>))\d&#123;<span class="number">8</span>&#125;$/,</span><br><span class="line"></span><br><span class="line"><span class="comment">//密码, 字母开头 长度6-18，只能包含字符 数字 和 下划线</span></span><br><span class="line">/^[a-zA-Z]\w&#123;<span class="number">5</span>,<span class="number">17</span>&#125;$/</span><br><span class="line"><span class="comment">//电话号 包含固话 手机 </span></span><br><span class="line">/^(^[<span class="number">1</span>][\d]&#123;<span class="number">10</span>&#125;$)|^([<span class="number">0</span>\+]\d&#123;<span class="number">2</span>,<span class="number">3</span>&#125;-?)?(\d&#123;<span class="number">7</span>,<span class="number">8</span>&#125;)(-?(\d&#123;<span class="number">1</span>,<span class="number">6</span>&#125;))?$/，</span><br><span class="line"><span class="comment">// 匹配指定字符内的内容（不包含指定字符）　　　　</span></span><br><span class="line">/(?&lt;=&lt;#).*?(?=#&gt;)/g;</span><br></pre></td></tr></table></figure>
 
       
@@ -168,7 +170,7 @@
     </header>
     <div class="e-content entry" itemprop="articleBody">
       
-        <h4 id="记录获取近三个月、近一个月、近一周时间的js方法"><a href="#记录获取近三个月、近一个月、近一周时间的js方法" class="headerlink" title="记录获取近三个月、近一个月、近一周时间的js方法"></a>记录获取近三个月、近一个月、近一周时间的js方法</h4>
+        <h4 id="记录获取近一周、近一个月、近三个月时间的js方法"><a href="#记录获取近一周、近一个月、近三个月时间的js方法" class="headerlink" title="记录获取近一周、近一个月、近三个月时间的js方法"></a>记录获取近一周、近一个月、近三个月时间的js方法</h4>
       
     </div>
     <footer>
@@ -280,7 +282,7 @@
     </header>
     <div class="e-content entry" itemprop="articleBody">
       
-        <h4 id="记录只用el-checkbox根据el-tag实现初始化界面时数据反显"><a href="#记录只用el-checkbox根据el-tag实现初始化界面时数据反显" class="headerlink" title="记录只用el-checkbox根据el-tag实现初始化界面时数据反显"></a>记录只用el-checkbox根据el-tag实现初始化界面时数据反显</h4><p>GitHub项目Demo地址：<a target="_blank" rel="noopener" href="https://github.com/Beingyo/vue-test-template/tree/main/src/page/checkboxShow">https://github.com/Beingyo/vue-test-template/tree/main/src/page/checkboxShow</a></p>
+        <h5 id="记录只用el-checkbox根据el-tag实现初始化界面时数据反显"><a href="#记录只用el-checkbox根据el-tag实现初始化界面时数据反显" class="headerlink" title="记录只用el-checkbox根据el-tag实现初始化界面时数据反显"></a>记录只用el-checkbox根据el-tag实现初始化界面时数据反显</h5><p>GitHub项目Demo地址：<a target="_blank" rel="noopener" href="https://github.com/Beingyo/vue-test-template/tree/main/src/page/checkboxShow">https://github.com/Beingyo/vue-test-template/tree/main/src/page/checkboxShow</a></p>
 <p>示例：</p>
 <p><img src="https://beingyo.github.io/img/(%E7%BB%84%E4%BB%B6)el-checkbox%E6%95%B0%E7%BB%84%E5%AF%B9%E8%B1%A1%E5%8F%8D%E6%98%BE-1.png" alt="(组件)el-checkbox数组对象反显-1.png"></p>
       
@@ -318,7 +320,7 @@
     </header>
     <div class="e-content entry" itemprop="articleBody">
       
-        <h4 id="记录点击图片后，打开el-dialog来查看，图片显示的最大尺寸由css控制"><a href="#记录点击图片后，打开el-dialog来查看，图片显示的最大尺寸由css控制" class="headerlink" title="记录点击图片后，打开el-dialog来查看，图片显示的最大尺寸由css控制"></a>记录点击图片后，打开el-dialog来查看，图片显示的最大尺寸由css控制</h4><p>GitHub项目Demo地址：<a target="_blank" rel="noopener" href="https://github.com/Beingyo/vue-test-template/tree/main/src/page/imgDialog">https://github.com/Beingyo/vue-test-template/tree/main/src/page/imgDialog</a></p>
+        <h5 id="记录点击图片后，打开el-dialog来查看，图片显示的最大尺寸由css控制"><a href="#记录点击图片后，打开el-dialog来查看，图片显示的最大尺寸由css控制" class="headerlink" title="记录点击图片后，打开el-dialog来查看，图片显示的最大尺寸由css控制"></a>记录点击图片后，打开el-dialog来查看，图片显示的最大尺寸由css控制</h5><p>GitHub项目Demo地址：<a target="_blank" rel="noopener" href="https://github.com/Beingyo/vue-test-template/tree/main/src/page/imgDialog">https://github.com/Beingyo/vue-test-template/tree/main/src/page/imgDialog</a></p>
 <p>示例：</p>
 <p><img src="https://beingyo.github.io/img/(%E7%BB%84%E4%BB%B6)el-dialog%E6%9F%A5%E7%9C%8B%E5%9B%BE%E7%89%87%E6%A1%86-1.png" alt="(组件)el-dialog查看图片框-1.png"></p>
       
@@ -356,7 +358,7 @@
     </header>
     <div class="e-content entry" itemprop="articleBody">
       
-        <h4 id="其实跟element官网的例子差不多"><a href="#其实跟element官网的例子差不多" class="headerlink" title="其实跟element官网的例子差不多"></a>其实跟element官网的例子差不多</h4><p>GitHub项目Demo地址：<a target="_blank" rel="noopener" href="https://github.com/Beingyo/vue-test-template/tree/main/src/page/elSearchLoad">https://github.com/Beingyo/vue-test-template/tree/main/src/page/elSearchLoad</a></p>
+        <h5 id="其实跟element官网的例子差不多"><a href="#其实跟element官网的例子差不多" class="headerlink" title="其实跟element官网的例子差不多"></a>其实跟element官网的例子差不多</h5><p>GitHub项目Demo地址：<a target="_blank" rel="noopener" href="https://github.com/Beingyo/vue-test-template/tree/main/src/page/elSearchLoad">https://github.com/Beingyo/vue-test-template/tree/main/src/page/elSearchLoad</a></p>
 <p>element-ui地址：<a target="_blank" rel="noopener" href="https://element.eleme.cn/#/zh-CN/component/input">https://element.eleme.cn/#/zh-CN/component/input</a></p>
       
     </div>
@@ -393,7 +395,7 @@
     </header>
     <div class="e-content entry" itemprop="articleBody">
       
-        <h4 id="由于是从主体上拆分出来的，逻辑可能有点乱，主要是记录下拉框如何获取四级JSON数据。"><a href="#由于是从主体上拆分出来的，逻辑可能有点乱，主要是记录下拉框如何获取四级JSON数据。" class="headerlink" title="由于是从主体上拆分出来的，逻辑可能有点乱，主要是记录下拉框如何获取四级JSON数据。"></a>由于是从主体上拆分出来的，逻辑可能有点乱，主要是记录下拉框如何获取四级JSON数据。</h4><p>三级、四级联动JSON数据在GitHub里下载吧，原地址忘了</p>
+        <h5 id="由于是从主体上拆分出来的，逻辑可能有点乱，主要是记录下拉框如何获取四级JSON数据。"><a href="#由于是从主体上拆分出来的，逻辑可能有点乱，主要是记录下拉框如何获取四级JSON数据。" class="headerlink" title="由于是从主体上拆分出来的，逻辑可能有点乱，主要是记录下拉框如何获取四级JSON数据。"></a>由于是从主体上拆分出来的，逻辑可能有点乱，主要是记录下拉框如何获取四级JSON数据。</h5><p>三级、四级联动JSON数据在GitHub里下载吧，原地址忘了</p>
 <p>GitHub项目Demo地址：<a target="_blank" rel="noopener" href="https://github.com/Beingyo/vue-test-template/tree/main/src/page/wholeNation">https://github.com/Beingyo/vue-test-template/tree/main/src/page/wholeNation</a></p>
 <p>示例：<br><img src="https://beingyo.github.io/img/(%E7%BB%84%E4%BB%B6)el-select%E5%85%A8%E5%9B%BD%E7%9C%81%E5%B8%82%E5%8C%BA%E9%95%87%E5%9B%9B%E7%BA%A7%E8%81%94%E5%8A%A8-1.png" alt="(组件)el-select全国省市区镇四级联动-1.png"></p>
       
@@ -419,22 +421,22 @@
 <nav id="pagination">
   
   
-    <a href="/page/2/" class="alignright next">Next</a>
+    <a href="/page/2/" class="alignright next">下一页</a>
   
   <div class="clearfix"></div>
 </nav></div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="Search">
-    <input type="hidden" name="as_sitesearch" value="example.com">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="as_sitesearch" value="beingyo.github.io">
   </form>
 </div>
 
 
   
 <div class="widget tag">
-  <h3 class="title">Categories</h3>
+  <h3 class="title">分类</h3>
   <ul class="entry">
   
     <li><a href="/categories/CSS/">CSS</a><small>8</small></li>
@@ -457,12 +459,12 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">标签</h3>
   <ul class="entry">
   
-    <li><a href="/tags/CSS/">CSS</a><small>8</small></li>
+    <li><a href="/tags/CSS/">CSS</a><small>10</small></li>
   
-    <li><a href="/tags/JS/">JS</a><small>9</small></li>
+    <li><a href="/tags/JS/">JS</a><small>15</small></li>
   
     <li><a href="/tags/NPM/">NPM</a><small>3</small></li>
   
@@ -472,7 +474,7 @@
   
     <li><a href="/tags/axios/">axios</a><small>1</small></li>
   
-    <li><a href="/tags/element/">element</a><small>2</small></li>
+    <li><a href="/tags/element/">element</a><small>11</small></li>
   
     <li><a href="/tags/%E4%BC%A0%E5%8F%82/">传参</a><small>4</small></li>
   
@@ -488,7 +490,7 @@
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
   
-  &copy; 2021 John Doe
+  &copy; 2021 bug源
   
 </div>
 <div class="clearfix"></div></footer>

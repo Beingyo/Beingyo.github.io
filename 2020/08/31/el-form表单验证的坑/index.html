@@ -1,20 +1,17 @@
 <!DOCTYPE HTML>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   
-  <title>el-form表单验证的坑 | Hexo</title>
-  <meta name="author" content="John Doe">
+  <title>el-form表单验证的坑 | Tamako</title>
+  <meta name="author" content="bug源">
   
-  <meta name="description" content="v-for问题使用v-for时导致表单验证出现this.$refs[formName].validate is not a function
-12// $refs[formName]后面加多一个[0]this.$refs[formName][0].validate((valid) =&amp;gt; &amp;#123;&amp;#125;)
-
-v-if问题">
+  <meta name="description" content="只为记录">
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <meta property="og:title" content="el-form表单验证的坑"/>
-  <meta property="og:site_name" content="Hexo"/>
+  <meta property="og:site_name" content="Tamako"/>
 
   
     <meta property="og:image" content=""/>
@@ -33,7 +30,7 @@ v-if问题">
 
 <body>
   <header id="header" class="inner"><div class="alignleft">
-  <h1><a href="/">Hexo</a></h1>
+  <h1><a href="/">Tamako</a></h1>
   <h2><a href="/"></a></h2>
 </div>
 <nav id="main-nav" class="alignright">
@@ -71,8 +68,8 @@ v-if问题">
 <h4 id="v-if问题"><a href="#v-if问题" class="headerlink" title="v-if问题"></a>v-if问题</h4><span id="more"></span>
 <ul>
 <li>问题：通过v-if控制两个表单显示或隐藏的过程中，会出现验证失效、验证冲突、样式出错等情况。</li>
-<li>原因：即使两个表单绑定的值不同，但是浏览器在解析时，先解析第一个表单，此时表单上是没有绑定ref，之后再解析第二个表单时，浏览器发现这它的prop和第一个表单的prop一样，所以就认为这两个表单是同一个表单，就没有重新渲染，而ref本身是作为渲染结果被创建的，所以第二个表单没能成功绑定ref，验证就无法生效。</li>
 <li>解决：给两个表单分别加key值。</li>
+<li>原因：即使两个表单绑定的值不同，但是浏览器在解析时，先解析第一个表单，此时表单上是没有绑定ref，之后再解析第二个表单时，浏览器发现这它的prop和第一个表单的prop一样，所以就认为这两个表单是同一个表单，就没有重新渲染，而ref本身是作为渲染结果被创建的，所以第二个表单没能成功绑定ref，验证就无法生效。</li>
 </ul>
 
       
@@ -117,7 +114,7 @@ v-if问题">
 
 
 <section id="comment">
-  <h1 class="title">Comments</h1>
+  <h1 class="title">留言</h1>
 
   
       <div id="fb-root"></div>
@@ -131,7 +128,7 @@ v-if问题">
   }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<div class="fb-comments" data-href="http://example.com/2020/08/31/el-form%E8%A1%A8%E5%8D%95%E9%AA%8C%E8%AF%81%E7%9A%84%E5%9D%91/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+<div class="fb-comments" data-href="https://beingyo.github.io/2020/08/31/el-form%E8%A1%A8%E5%8D%95%E9%AA%8C%E8%AF%81%E7%9A%84%E5%9D%91/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
       
   
 </section>
@@ -140,15 +137,15 @@ v-if问题">
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="Search">
-    <input type="hidden" name="as_sitesearch" value="example.com">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="as_sitesearch" value="beingyo.github.io">
   </form>
 </div>
 
 
   
 <div class="widget tag">
-  <h3 class="title">Categories</h3>
+  <h3 class="title">分类</h3>
   <ul class="entry">
   
     <li><a href="/categories/CSS/">CSS</a><small>8</small></li>
@@ -171,12 +168,12 @@ v-if问题">
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">标签</h3>
   <ul class="entry">
   
-    <li><a href="/tags/CSS/">CSS</a><small>8</small></li>
+    <li><a href="/tags/CSS/">CSS</a><small>10</small></li>
   
-    <li><a href="/tags/JS/">JS</a><small>9</small></li>
+    <li><a href="/tags/JS/">JS</a><small>15</small></li>
   
     <li><a href="/tags/NPM/">NPM</a><small>3</small></li>
   
@@ -186,7 +183,7 @@ v-if问题">
   
     <li><a href="/tags/axios/">axios</a><small>1</small></li>
   
-    <li><a href="/tags/element/">element</a><small>2</small></li>
+    <li><a href="/tags/element/">element</a><small>11</small></li>
   
     <li><a href="/tags/%E4%BC%A0%E5%8F%82/">传参</a><small>4</small></li>
   
@@ -202,7 +199,7 @@ v-if问题">
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
   
-  &copy; 2021 John Doe
+  &copy; 2021 bug源
   
 </div>
 <div class="clearfix"></div></footer>

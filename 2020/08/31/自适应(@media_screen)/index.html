@@ -1,17 +1,17 @@
 <!DOCTYPE HTML>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   
-  <title>自适应(@media_screen) | Hexo</title>
-  <meta name="author" content="John Doe">
+  <title>自适应(@media_screen) | Tamako</title>
+  <meta name="author" content="bug源">
   
-  <meta name="description" content="根据分辨率进而修改CSS样式12345678910111213141516&amp;lt;style&amp;gt;  @media screen and (min-width:1200px)&amp;#123;    .class&amp;#123;      height: 200px;      width: 200px; ">
+  <meta name="description" content="只为记录">
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <meta property="og:title" content="自适应(@media_screen)"/>
-  <meta property="og:site_name" content="Hexo"/>
+  <meta property="og:site_name" content="Tamako"/>
 
   
     <meta property="og:image" content=""/>
@@ -30,7 +30,7 @@
 
 <body>
   <header id="header" class="inner"><div class="alignleft">
-  <h1><a href="/">Hexo</a></h1>
+  <h1><a href="/">Tamako</a></h1>
   <h2><a href="/"></a></h2>
 </div>
 <nav id="main-nav" class="alignright">
@@ -62,7 +62,8 @@
     </header>
     <div class="e-content entry" itemprop="articleBody">
       
-        <h3 id="根据分辨率进而修改CSS样式"><a href="#根据分辨率进而修改CSS样式" class="headerlink" title="根据分辨率进而修改CSS样式"></a>根据分辨率进而修改CSS样式</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">  <span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>:<span class="number">1200px</span>)&#123;</span><br><span class="line">    <span class="selector-class">.class</span>&#123;</span><br><span class="line">      <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">      <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">      <span class="attribute">background-color</span>: blueviolet;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">max-width</span>:<span class="number">1200px</span>)&#123;</span><br><span class="line">      <span class="selector-class">.class</span>&#123;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">        <span class="attribute">background-color</span>: pink;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+        <h3 id="根据分辨率进而修改CSS样式"><a href="#根据分辨率进而修改CSS样式" class="headerlink" title="根据分辨率进而修改CSS样式"></a>根据分辨率进而修改CSS样式</h3><p>使用方法</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">  <span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">max-width</span>:<span class="number">600px</span>)&#123;</span></span><br><span class="line">    .box&#123;</span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">background-color</span>: blueviolet;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>:<span class="number">1200px</span>)&#123;</span></span><br><span class="line">      .box&#123;</span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">300px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: pink;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>:<span class="number">600px</span>) <span class="keyword">and</span> (<span class="attribute">max-width</span>:<span class="number">1200px</span>)&#123;</span></span><br><span class="line">      .box&#123;</span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: lightskyblue;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -106,7 +107,7 @@
 
 
 <section id="comment">
-  <h1 class="title">Comments</h1>
+  <h1 class="title">留言</h1>
 
   
       <div id="fb-root"></div>
@@ -120,7 +121,7 @@
   }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<div class="fb-comments" data-href="http://example.com/2020/08/31/%E8%87%AA%E9%80%82%E5%BA%94(@media_screen)/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+<div class="fb-comments" data-href="https://beingyo.github.io/2020/08/31/%E8%87%AA%E9%80%82%E5%BA%94(@media_screen)/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
       
   
 </section>
@@ -129,15 +130,15 @@
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="Search">
-    <input type="hidden" name="as_sitesearch" value="example.com">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="as_sitesearch" value="beingyo.github.io">
   </form>
 </div>
 
 
   
 <div class="widget tag">
-  <h3 class="title">Categories</h3>
+  <h3 class="title">分类</h3>
   <ul class="entry">
   
     <li><a href="/categories/CSS/">CSS</a><small>8</small></li>
@@ -160,12 +161,12 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">标签</h3>
   <ul class="entry">
   
-    <li><a href="/tags/CSS/">CSS</a><small>8</small></li>
+    <li><a href="/tags/CSS/">CSS</a><small>10</small></li>
   
-    <li><a href="/tags/JS/">JS</a><small>9</small></li>
+    <li><a href="/tags/JS/">JS</a><small>15</small></li>
   
     <li><a href="/tags/NPM/">NPM</a><small>3</small></li>
   
@@ -175,7 +176,7 @@
   
     <li><a href="/tags/axios/">axios</a><small>1</small></li>
   
-    <li><a href="/tags/element/">element</a><small>2</small></li>
+    <li><a href="/tags/element/">element</a><small>11</small></li>
   
     <li><a href="/tags/%E4%BC%A0%E5%8F%82/">传参</a><small>4</small></li>
   
@@ -191,7 +192,7 @@
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
   
-  &copy; 2021 John Doe
+  &copy; 2021 bug源
   
 </div>
 <div class="clearfix"></div></footer>

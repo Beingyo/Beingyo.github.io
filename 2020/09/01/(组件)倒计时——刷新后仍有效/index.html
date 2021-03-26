@@ -1,17 +1,17 @@
 <!DOCTYPE HTML>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   
-  <title>(组件)倒计时——刷新后仍有效 | Hexo</title>
-  <meta name="author" content="John Doe">
+  <title>(组件)倒计时——刷新后仍有效 | Tamako</title>
+  <meta name="author" content="bug源">
   
-  <meta name="description" content="记录一个刷新后仍然有效的倒计时demoGitHub项目Demo地址：https://github.com/Beingyo/vue-test-template/tree/main/src/page/countDown">
+  <meta name="description" content="只为记录">
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <meta property="og:title" content="(组件)倒计时——刷新后仍有效"/>
-  <meta property="og:site_name" content="Hexo"/>
+  <meta property="og:site_name" content="Tamako"/>
 
   
     <meta property="og:image" content=""/>
@@ -30,7 +30,7 @@
 
 <body>
   <header id="header" class="inner"><div class="alignleft">
-  <h1><a href="/">Hexo</a></h1>
+  <h1><a href="/">Tamako</a></h1>
   <h2><a href="/"></a></h2>
 </div>
 <nav id="main-nav" class="alignright">
@@ -62,7 +62,7 @@
     </header>
     <div class="e-content entry" itemprop="articleBody">
       
-        <h4 id="记录一个刷新后仍然有效的倒计时demo"><a href="#记录一个刷新后仍然有效的倒计时demo" class="headerlink" title="记录一个刷新后仍然有效的倒计时demo"></a>记录一个刷新后仍然有效的倒计时demo</h4><p>GitHub项目Demo地址：<a target="_blank" rel="noopener" href="https://github.com/Beingyo/vue-test-template/tree/main/src/page/countDown">https://github.com/Beingyo/vue-test-template/tree/main/src/page/countDown</a></p>
+        <h5 id="记录一个刷新后仍然有效的倒计时demo"><a href="#记录一个刷新后仍然有效的倒计时demo" class="headerlink" title="记录一个刷新后仍然有效的倒计时demo"></a>记录一个刷新后仍然有效的倒计时demo</h5><p>GitHub项目Demo地址：<a target="_blank" rel="noopener" href="https://github.com/Beingyo/vue-test-template/tree/main/src/page/countDown">https://github.com/Beingyo/vue-test-template/tree/main/src/page/countDown</a></p>
 <span id="more"></span>
 <p>代码：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div style=<span class="string">&quot;width: 100%&quot;</span>&gt;</span><br><span class="line">    &lt;div style=<span class="string">&quot;width: 1000px;text-align: left;margin: 0 auto;&quot;</span>&gt;</span><br><span class="line">      &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;code&quot;</span>&gt;</span><br><span class="line">        &lt;el-button <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;btn-code&quot;</span> :disabled=<span class="string">&quot;codeDisabled&quot;</span> :loading=<span class="string">&quot;getCodeLoad&quot;</span> @click=<span class="string">&quot;getCode&quot;</span> &gt;&#123;&#123; codeMsg &#125;&#125;&lt;/el-button&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  data () &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      codeMsg: <span class="string">&#x27;获取验证码&#x27;</span>,</span><br><span class="line">      getCodeLoad: <span class="literal">false</span>, <span class="comment">// 获取验证码时按钮加载</span></span><br><span class="line">      codeDisabled: <span class="literal">true</span>, <span class="comment">// 获取验证码时禁用按钮</span></span><br><span class="line">      countdown: <span class="number">60</span>, <span class="comment">// 倒计时秒数</span></span><br><span class="line">      timer: <span class="literal">null</span>, <span class="comment">// 定时器</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  created () &#123;</span><br><span class="line">    <span class="comment">// 进入页面时获取之前是否有倒计时</span></span><br><span class="line">    <span class="keyword">const</span> endTime = <span class="built_in">localStorage</span>.getItem(<span class="string">&#x27;endTime&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> (endTime) &#123;</span><br><span class="line">      <span class="built_in">this</span>.codeCountDown(endTime)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="built_in">this</span>.codeDisabled = <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    <span class="function"><span class="title">getCode</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">      <span class="built_in">this</span>.getCodeLoad = <span class="literal">true</span></span><br><span class="line">      <span class="built_in">this</span>.getCodeLoad = <span class="literal">false</span></span><br><span class="line">      <span class="keyword">const</span> endMsRes = (<span class="keyword">new</span> <span class="built_in">Date</span>()).getTime() + <span class="number">30000</span></span><br><span class="line">      <span class="built_in">localStorage</span>.setItem(<span class="string">&#x27;endTime&#x27;</span>, <span class="built_in">JSON</span>.stringify(endMsRes))</span><br><span class="line">      <span class="built_in">this</span>.codeCountDown(endMsRes)</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 新倒计时，网页刷新后仍存在</span></span><br><span class="line">    codeCountDown (endMsRes) &#123;</span><br><span class="line">      <span class="comment">// this.codeDisabled = true</span></span><br><span class="line">      <span class="built_in">this</span>.countdown = <span class="built_in">Math</span>.ceil((endMsRes - (<span class="keyword">new</span> <span class="built_in">Date</span>()).getTime()) / <span class="number">1000</span>)</span><br><span class="line">      <span class="keyword">const</span> timer = <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.countdown--</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.countdown &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">          <span class="built_in">this</span>.codeMsg = <span class="string">&#x27;获取验证码&#x27;</span> + <span class="string">&#x27;(&#x27;</span> + <span class="built_in">this</span>.countdown + <span class="string">&#x27;)&#x27;</span> + <span class="string">&#x27;秒&#x27;</span></span><br><span class="line">          <span class="built_in">this</span>.codeDisabled = <span class="literal">true</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.countdown &lt; <span class="number">1</span>) &#123;</span><br><span class="line">          <span class="built_in">this</span>.codeDisabled = <span class="literal">false</span></span><br><span class="line">          <span class="built_in">this</span>.codeMsg = <span class="string">&#x27;获取验证码&#x27;</span></span><br><span class="line">          <span class="built_in">this</span>.countdown = <span class="number">60</span></span><br><span class="line">          <span class="built_in">localStorage</span>.removeItem(<span class="string">&#x27;endTime&#x27;</span>)</span><br><span class="line">          <span class="built_in">clearTimeout</span>(timer)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="built_in">this</span>.codeCountDown(endMsRes)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;, <span class="number">1000</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
@@ -80,7 +80,7 @@
         
   
   <div class="tags">
-    <a href="/tags/%E7%BB%84%E4%BB%B6/">组件</a>
+    <a href="/tags/JS/">JS</a>, <a href="/tags/%E7%BB%84%E4%BB%B6/">组件</a>
   </div>
 
         
@@ -109,7 +109,7 @@
 
 
 <section id="comment">
-  <h1 class="title">Comments</h1>
+  <h1 class="title">留言</h1>
 
   
       <div id="fb-root"></div>
@@ -123,7 +123,7 @@
   }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<div class="fb-comments" data-href="http://example.com/2020/09/01/(%E7%BB%84%E4%BB%B6)%E5%80%92%E8%AE%A1%E6%97%B6%E2%80%94%E2%80%94%E5%88%B7%E6%96%B0%E5%90%8E%E4%BB%8D%E6%9C%89%E6%95%88/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+<div class="fb-comments" data-href="https://beingyo.github.io/2020/09/01/(%E7%BB%84%E4%BB%B6)%E5%80%92%E8%AE%A1%E6%97%B6%E2%80%94%E2%80%94%E5%88%B7%E6%96%B0%E5%90%8E%E4%BB%8D%E6%9C%89%E6%95%88/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
       
   
 </section>
@@ -132,15 +132,15 @@
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="Search">
-    <input type="hidden" name="as_sitesearch" value="example.com">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="as_sitesearch" value="beingyo.github.io">
   </form>
 </div>
 
 
   
 <div class="widget tag">
-  <h3 class="title">Categories</h3>
+  <h3 class="title">分类</h3>
   <ul class="entry">
   
     <li><a href="/categories/CSS/">CSS</a><small>8</small></li>
@@ -163,12 +163,12 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">标签</h3>
   <ul class="entry">
   
-    <li><a href="/tags/CSS/">CSS</a><small>8</small></li>
+    <li><a href="/tags/CSS/">CSS</a><small>10</small></li>
   
-    <li><a href="/tags/JS/">JS</a><small>9</small></li>
+    <li><a href="/tags/JS/">JS</a><small>15</small></li>
   
     <li><a href="/tags/NPM/">NPM</a><small>3</small></li>
   
@@ -178,7 +178,7 @@
   
     <li><a href="/tags/axios/">axios</a><small>1</small></li>
   
-    <li><a href="/tags/element/">element</a><small>2</small></li>
+    <li><a href="/tags/element/">element</a><small>11</small></li>
   
     <li><a href="/tags/%E4%BC%A0%E5%8F%82/">传参</a><small>4</small></li>
   
@@ -194,7 +194,7 @@
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
   
-  &copy; 2021 John Doe
+  &copy; 2021 bug源
   
 </div>
 <div class="clearfix"></div></footer>
